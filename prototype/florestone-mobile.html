@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Florestone - A Spec Above</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --stone:#C4B8A8;--sand:#F2EBE0;--sand-dark:#E5D9CA;--slate:#4A5568;--charcoal:#2D3748;--offwhite:#FAFAF8;
+  --accent:#2B5F8E;--accent-light:#E6EFF7;--accent-dark:#1a4a72;
+  --serif:'DM Serif Display',serif;--sans:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --radius:6px;--border:0.5px solid rgba(196,184,168,0.5);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--offwhite);color:var(--charcoal);font-size:15px;line-height:1.6;opacity:0;transition:opacity .15s ease;overflow-x:hidden}
+body.ready{opacity:1}
+body.menu-open{overflow:hidden}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+.hidden{display:none!important}.page{display:none}.page.active{display:block}
+
+nav{background:var(--offwhite);border-bottom:.5px solid var(--stone);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:200}
+.logo{font-family:var(--serif);font-size:24px;color:var(--charcoal);cursor:pointer;letter-spacing:-.3px;text-decoration:none;line-height:1}
+.logo span{color:var(--accent)}.tagline{font-family:var(--sans);font-size:11px;color:var(--stone);letter-spacing:.08em;display:block;margin-top:2px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;color:var(--slate);text-decoration:none;letter-spacing:.01em;padding:4px 0;border-bottom:2px solid transparent;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--charcoal);border-bottom-color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:12px}.nav-cta{background:var(--accent);color:#fff;border:none;padding:10px 22px;font-size:13px;font-family:var(--sans);cursor:pointer;border-radius:var(--radius);font-weight:500}.nav-cta:hover{background:var(--accent-dark)}
+.mobile-menu-btn{display:none;width:44px;height:44px;border:0;background:transparent;color:var(--charcoal);font-size:26px;align-items:center;justify-content:center;cursor:pointer}
+
+.breadcrumb{padding:10px 48px;font-size:12px;color:var(--slate);border-bottom:.5px solid rgba(196,184,168,.3);background:#fff}
+.breadcrumb span{color:var(--stone);margin:0 6px}.breadcrumb a{color:var(--slate);text-decoration:none;cursor:pointer}.breadcrumb a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:11px 24px;font-size:14px;font-weight:500;border-radius:var(--radius);cursor:pointer;border:none;font-family:var(--sans);transition:all .15s;text-decoration:none}
+.btn-primary{background:var(--stone);color:var(--charcoal)}.btn-primary:hover{background:#b8a898}.btn-white{background:#fff;color:var(--charcoal);border:.5px solid rgba(255,255,255,.3)}
+.btn-accent{background:var(--accent);color:#fff}.btn-accent:hover{background:var(--accent-dark)}.btn-outline{background:transparent;color:rgba(255,255,255,.85);border:.5px solid rgba(255,255,255,.35)}.btn-outline:hover{background:rgba(255,255,255,.08)}
+
+.hero{position:relative;background:#2D3748;min-height:580px;display:flex;align-items:center;overflow:hidden}
+.hero-img{position:absolute;left:24%;top:0;width:66%;height:100%;object-fit:contain;object-position:72% 67%;opacity:0;transition:opacity .55s ease;z-index:1;transform:scale(1.7)}
+.hero-img.loaded{opacity:1;animation:kenburns 1.7s ease-out forwards}@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.7)}}
+.hero-img-overlay2{position:absolute;inset:0;background:linear-gradient(to right,rgba(45,55,72,.92) 0%,rgba(45,55,72,.35) 44%,rgba(45,55,72,0) 64%);z-index:2;pointer-events:none}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(45,55,72,.6) 0%,transparent 40%);z-index:2;pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 56px,rgba(255,255,255,.01) 56px,rgba(255,255,255,.01) 57px),repeating-linear-gradient(90deg,transparent,transparent 56px,rgba(255,255,255,.01) 56px,rgba(255,255,255,.01) 57px);z-index:3}
+.hero-content{position:relative;z-index:5;padding:0 52px;max-width:500px}.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(196,184,168,.12);border:.5px solid rgba(196,184,168,.3);color:var(--stone);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px}
+.hero h1{font-family:var(--serif);font-size:48px;color:#fff;line-height:1.1;margin-bottom:20px;font-weight:400}.hero h1 em{font-style:italic;color:var(--stone)}
+.hero p{font-size:15px;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:34px;max-width:420px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{position:absolute;bottom:0;right:0;display:flex;z-index:6}.stat{padding:26px 34px;border-left:.5px solid rgba(196,184,168,.12);text-align:center;background:rgba(30,38,52,.82);backdrop-filter:blur(12px)}
+.stat-num{font-family:var(--serif);font-size:30px;color:var(--stone);display:block;line-height:1}.stat-label{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:5px;display:block}
+.trust-bar{background:var(--sand);border-bottom:.5px solid var(--stone);padding:13px 48px;display:flex;align-items:center;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}.trust-item{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:12px;color:var(--slate);padding:0 28px;border-right:.5px solid var(--stone)}.trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:none}.trust-item i{font-size:15px;color:var(--accent)}
+
+.section{padding:72px 48px}.section-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}.section-title{font-family:var(--serif);font-size:36px;color:var(--charcoal);font-weight:400;line-height:1.15;margin-bottom:6px}.section-sub{font-size:15px;color:var(--slate);max-width:520px;line-height:1.7}.section-header{margin-bottom:44px}.section-header-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+.categories-grid,.gallery-grid,.resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cat-card,.why-card,.cert-card,.resource-card,.product-card,.dealer-card-item{background:#fff;border:var(--border);border-radius:var(--radius)}.cat-card,.product-card,.dealer-card-item{cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}.cat-card:hover,.dealer-card-item:hover,.dealer-card-item.active{border-color:var(--accent)}.cat-card:hover{transform:translateY(-2px)}
+.cat-img{height:180px;display:flex;align-items:center;justify-content:center}.cat-img i{font-size:42px;color:rgba(196,184,168,.6)}.cat-body{padding:20px}.cat-name,.why-title,.gallery-name,.resource-name{font-size:15px;font-weight:500;color:var(--charcoal);margin-bottom:4px}.cat-count,.why-text,.gallery-sub,.resource-meta{font-size:12px;color:var(--slate);line-height:1.65}.cat-arrow{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--accent);margin-top:12px;font-weight:500}
+.why-section{background:var(--sand)}.why-card{padding:28px 22px}.why-icon,.resource-icon{width:44px;height:44px;background:var(--accent-light);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:16px}.why-icon i,.resource-icon i{font-size:22px;color:var(--accent)}
+.dealer-section{background:var(--charcoal);padding:72px 48px}.dealer-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.dealer-left h2{font-family:var(--serif);font-size:38px;color:#fff;font-weight:400;line-height:1.15;margin-bottom:16px}.dealer-left p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:30px}.dealer-search,.dealer-search-big{display:flex;gap:0;max-width:480px}.dealer-input,.dealer-input-big{flex:1;min-width:0;padding:13px 18px;background:rgba(255,255,255,.07);border:.5px solid rgba(255,255,255,.18);color:#fff;font-size:14px;font-family:var(--sans);border-radius:var(--radius) 0 0 var(--radius);outline:none}.dealer-btn,.dealer-btn-big{background:var(--stone);color:var(--charcoal);padding:13px 22px;font-size:14px;font-weight:500;border:none;cursor:pointer;border-radius:0 var(--radius) var(--radius) 0;font-family:var(--sans);min-height:44px}.map-mock,.map-area{background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.12);border-radius:var(--radius);min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}.map-mock i,.map-area i{font-size:36px;color:var(--stone)}.map-mock p,.map-area p{font-size:13px;color:rgba(255,255,255,.45);max-width:240px;line-height:1.5}
+.gallery-card{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;height:220px}.gallery-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}.gallery-bg i{font-size:48px;color:rgba(196,184,168,.25)}.gallery-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(45,55,72,.92),transparent);padding:48px 18px 18px}.gallery-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:5px}.gallery-name{color:#fff}
+footer{background:#1B2537;padding:56px 48px 32px}.footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}.footer-brand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.75;max-width:260px}.footer-col h4{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:16px}.footer-col ul{list-style:none}.footer-col li{margin-bottom:9px}.footer-col a{font-size:13px;color:rgba(255,255,255,.42);text-decoration:none;cursor:pointer}.footer-bottom{border-top:.5px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:18px}.footer-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+.products-layout{display:grid;grid-template-columns:240px 1fr;min-height:70vh}.sidebar{border-right:var(--border);padding:28px 22px;background:#fff;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}.sidebar-section{margin-bottom:26px}.sidebar-section-title{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--stone);margin-bottom:12px;font-weight:500}.filter-item{display:flex;align-items:center;gap:9px;padding:5px 0;cursor:pointer}.filter-item input{width:15px;height:15px;accent-color:var(--accent)}.filter-item label{font-size:13px;color:var(--slate)}.filter-divider{height:.5px;background:rgba(196,184,168,.4);margin:18px 0}.ada-toggle-wrap{background:var(--accent-light);border:.5px solid rgba(43,95,142,.2);border-radius:var(--radius);padding:12px 14px;display:flex;justify-content:space-between;align-items:center}.ada-toggle-label{font-size:13px;color:var(--accent);font-weight:500}.toggle-pill{width:36px;height:20px;background:var(--accent);border-radius:10px;position:relative}.toggle-pill:after{content:'';position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:2px;right:2px}
+.products-main{padding:28px 32px}.products-toolbar,.products-section-header{display:flex;align-items:center;justify-content:space-between;gap:16px}.products-toolbar{margin-bottom:18px}.products-count{font-size:13px;color:var(--slate)}.sort-select{font-size:13px;font-family:var(--sans);color:var(--slate);border:var(--border);padding:9px 12px;border-radius:var(--radius);background:var(--offwhite);cursor:pointer;min-height:44px}.products-section{margin-bottom:36px}.products-section-header{padding:12px 0;border-bottom:.5px solid rgba(196,184,168,.5);margin-bottom:18px}.products-section-header h2{font-family:var(--serif);font-size:22px;font-weight:400}.section-docs,.card-actions,.detail-downloads{display:flex;gap:8px;flex-wrap:wrap}.doc-btn,.dl-btn,.detail-dl-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:36px;font-size:11px;color:var(--slate);background:var(--sand);padding:5px 11px;border-radius:var(--radius);border:var(--border);cursor:pointer;text-decoration:none}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.product-card:hover{border-color:var(--accent);box-shadow:0 2px 16px rgba(43,95,142,.08)}.card-img{height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;gap:6px}.card-img i{font-size:32px;color:rgba(196,184,168,.5)}.card-img-label{font-size:10px;font-family:var(--mono);color:rgba(196,184,168,.7)}.series-badge,.ada-badge{position:absolute;top:9px;background:rgba(45,55,72,.72);color:#fff;font-size:9px;letter-spacing:.07em;padding:3px 8px;border-radius:2px;font-family:var(--mono)}.series-badge{left:9px}.ada-badge{right:9px;background:var(--accent)}.card-body{padding:14px}.card-name{font-size:13px;font-weight:500;margin-bottom:3px;line-height:1.4}.card-sub{font-size:12px;color:var(--slate);margin-bottom:9px}.card-specs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}.spec-pill{background:var(--sand);font-size:10px;font-family:var(--mono);color:var(--slate);padding:2px 7px;border-radius:2px}.dl-btn{flex:1;padding:7px 4px}.dl-btn.pdf,.detail-dl-btn.pdf{color:#c0392b;border-color:rgba(192,57,43,.25);background:rgba(192,57,43,.04)}.dl-btn.cad,.detail-dl-btn.cad{color:var(--accent);border-color:rgba(43,95,142,.25);background:var(--accent-light)}
+
+.why-hero,.dealer-page-hero{background:var(--charcoal);padding:72px 48px;text-align:center}.why-hero h1,.dealer-page-hero h1{font-family:var(--serif);font-size:46px;color:#fff;font-weight:400;margin-bottom:16px}.why-hero p,.dealer-page-hero p{font-size:16px;color:rgba(255,255,255,.55);max-width:520px;margin:0 auto;line-height:1.75}.story-grid,.contact-layout,.product-detail-layout,.dealer-content{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}.story-text h2,.contact-left h1,.product-detail-info h1{font-family:var(--serif);font-size:32px;font-weight:400;margin-bottom:14px}.story-text p{font-size:15px;color:var(--slate);line-height:1.8;margin-bottom:14px}.story-img,.product-detail-img{background:var(--sand);border-radius:var(--radius);min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:var(--border);gap:10px}.story-img i,.product-detail-img i{font-size:56px;color:rgba(196,184,168,.4)}.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.cert-card{padding:28px;text-align:center}.stats-banner-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}.stat-block{padding:0 20px;border-right:.5px solid var(--stone)}.stat-block:last-child{border-right:none}.stat-block-num{font-family:var(--serif);font-size:40px}.stat-block-label{font-size:13px;color:var(--slate);margin-top:6px}
+.dealer-search-big{margin:28px auto 0}.dealer-tabs{display:flex;gap:0;border-bottom:.5px solid rgba(196,184,168,.5);padding:0 48px;background:#fff;overflow-x:auto}.dealer-tab{padding:14px 24px;font-size:13px;color:var(--slate);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-.5px;white-space:nowrap}.dealer-tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500}.dealer-content{gap:0;min-height:400px}.dealer-list{padding:24px;border-right:.5px solid rgba(196,184,168,.4);overflow-y:auto;max-height:480px}.dealer-card-item{padding:16px;margin-bottom:10px}.dealer-card-item h4{font-size:14px;font-weight:500;margin-bottom:4px}.dealer-card-item p{font-size:12px;color:var(--slate);line-height:1.5}.dealer-tags{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}.d-tag{font-size:10px;background:var(--sand);color:var(--slate);padding:2px 7px;border-radius:2px}.map-area{background:var(--sand);border:0;min-height:400px}.map-area p{color:var(--slate)}.map-note{font-size:12px;color:var(--stone);padding:0 18px}
+.contact-layout{gap:0;min-height:60vh}.contact-left{background:var(--charcoal);padding:56px 48px;color:#fff}.contact-left p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:36px}.contact-info-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:24px}.contact-info-icon{width:38px;height:38px;background:rgba(196,184,168,.12);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-shrink:0}.contact-info-icon i{font-size:18px;color:var(--stone)}.contact-info-text p{font-size:12px;color:rgba(255,255,255,.38);margin-bottom:2px}.contact-info-text strong{font-size:14px;color:rgba(255,255,255,.8);font-weight:400}.contact-form{padding:56px 48px;background:#fff}.contact-form h2{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:6px}.contact-form p{font-size:13px;color:var(--slate);margin-bottom:28px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-group{margin-bottom:14px}.form-group label{display:block;font-size:12px;font-weight:500;color:var(--slate);margin-bottom:6px}.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:.5px solid rgba(196,184,168,.6);border-radius:var(--radius);font-size:16px;font-family:var(--sans);color:var(--charcoal);background:var(--offwhite);outline:none}.form-group textarea{resize:vertical;min-height:100px}.form-submit{background:var(--accent);color:#fff;border:none;padding:13px 32px;font-size:14px;font-weight:500;border-radius:var(--radius);cursor:pointer;font-family:var(--sans);width:100%;min-height:48px}
+.product-detail-layout{padding:48px}.detail-sub{font-size:14px;color:var(--slate);margin-bottom:20px}.detail-badges{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}.detail-badge{font-size:11px;padding:4px 12px;border-radius:2px;font-family:var(--mono)}.detail-badge.series{background:var(--charcoal);color:#fff}.detail-badge.ada{background:var(--accent);color:#fff}.detail-badge.type{background:var(--sand);color:var(--slate)}.specs-table{width:100%;margin-bottom:24px;border-collapse:collapse}.specs-table tr{border-bottom:.5px solid rgba(196,184,168,.3)}.specs-table td{padding:10px 0;font-size:13px}.specs-table td:first-child{color:var(--slate);width:40%}.specs-table td:last-child{font-family:var(--mono);font-size:12px}
+.resource-card{padding:22px;display:flex;flex-direction:column}.resource-icon.pdf-icon{background:rgba(192,57,43,.08)}.resource-icon.pdf-icon i{color:#c0392b}.resource-meta{flex:1;margin-bottom:14px}.resource-dl{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--accent);font-weight:500;cursor:pointer;text-decoration:none}
+
+@media (max-width:1100px){
+  .categories-grid,.gallery-grid,.resources-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1.4fr 1fr 1fr}
+  .hero h1{font-size:42px}
+}
+@media (max-width:820px){
+  body{font-size:16px}
+  nav{height:64px;padding:0 18px}
+  .mobile-menu-btn{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--offwhite);display:flex;flex-direction:column;gap:0;padding:18px;transform:translateX(100%);transition:transform .22s ease;z-index:210;border-top:.5px solid var(--stone);overflow-y:auto}
+  body.menu-open .nav-links{transform:translateX(0)}
+  .nav-links li{border-bottom:.5px solid rgba(196,184,168,.35)}
+  .nav-links a{display:flex;align-items:center;min-height:52px;font-size:16px;border-bottom:0}
+  .nav-right{display:none}
+  .logo{font-size:22px}.tagline{font-size:10px}
+  .breadcrumb{padding:10px 18px;overflow-x:auto;white-space:nowrap}
+  .hero{min-height:auto;align-items:flex-start;padding:70px 0 0}
+  .hero-img{left:18%;width:120%;height:58%;object-position:center bottom;opacity:.28;transform:scale(1.2)}
+  .hero-img.loaded{animation:none;opacity:.28}
+  .hero-img-overlay2{background:linear-gradient(to bottom,rgba(45,55,72,.96),rgba(45,55,72,.78) 55%,rgba(45,55,72,.35))}
+  .hero-content{padding:0 20px 220px;max-width:none}
+  .hero-badge{font-size:10px;line-height:1.4;margin-bottom:18px}
+  .hero h1{font-size:38px;white-space:normal}
+  .hero p{font-size:16px;max-width:none;margin-bottom:24px}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}.hero-actions .btn{width:100%}
+  .hero-stats{position:relative;left:auto;right:auto;bottom:auto;display:grid;grid-template-columns:repeat(2,1fr);width:100%;margin-top:-180px}
+  .stat{padding:20px 12px;border-top:.5px solid rgba(196,184,168,.12)}.stat-num{font-size:28px}
+  .trust-bar{padding:12px 18px}.trust-item{padding:0 18px}
+  .section,.dealer-section,.why-hero,.dealer-page-hero{padding:48px 18px}
+  .section-header-row{display:block;margin-bottom:28px}.section-header-row .btn{width:100%;margin-top:18px}
+  .section-title{font-size:31px}.section-sub{font-size:16px}
+  .categories-grid,.why-grid,.gallery-grid,.resources-grid,.certs-grid,.product-grid{grid-template-columns:1fr}
+  .cat-img{height:150px}.gallery-card{height:200px}
+  .dealer-inner,.story-grid,.contact-layout,.product-detail-layout,.dealer-content{grid-template-columns:1fr;gap:28px}
+  .dealer-search,.dealer-search-big{display:grid;grid-template-columns:1fr;gap:10px;max-width:none}
+  .dealer-input,.dealer-input-big,.dealer-btn,.dealer-btn-big{border-radius:var(--radius);width:100%}
+  .footer-top{grid-template-columns:1fr;gap:28px}.footer-bottom{display:block}.footer-bottom p+p{margin-top:8px}
+  .products-layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:var(--border);padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.sidebar-section{margin-bottom:0}.filter-divider{display:none}
+  .products-main{padding:22px 18px}.products-toolbar,.products-section-header{align-items:flex-start;flex-direction:column}.sort-select{width:100%}.section-docs{width:100%}.doc-btn{flex:1;min-width:120px}
+  .card-actions{display:grid;grid-template-columns:repeat(3,1fr)}.dl-btn{min-height:42px}
+  .stats-banner-inner{grid-template-columns:repeat(2,1fr);row-gap:26px}.stat-block{border-right:0}
+  .dealer-tabs{padding:0 18px}.dealer-content{min-height:auto}.dealer-list{border-right:0;border-bottom:.5px solid rgba(196,184,168,.4);max-height:none}.map-area{min-height:300px}
+  .contact-left,.contact-form{padding:42px 18px}.form-row{grid-template-columns:1fr}
+  .product-detail-layout{padding:32px 18px}.product-detail-img{min-height:260px}.detail-downloads,.detail-downloads a,.product-detail-info .btn{width:100%}
+}
+@media (max-width:480px){
+  .hero-content{padding-bottom:205px}.hero h1{font-size:34px}.hero-stats{grid-template-columns:1fr 1fr;margin-top:-165px}.stat{padding:16px 8px}.stat-label{font-size:9px}
+  .section-title{font-size:28px}.sidebar{grid-template-columns:1fr}.card-actions{grid-template-columns:1fr}.doc-btn{flex-basis:100%}.stats-banner-inner{grid-template-columns:1fr}.dealer-tab{padding:14px 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" onclick="showPage('home')">Flore<span>stone</span><small class="tagline">A spec above.</small></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('products')" id="nav-products">Products</a></li>
+    <li><a onclick="showPage('why')" id="nav-why">Why Florestone</a></li>
+    <li><a onclick="showPage('resources')" id="nav-resources">Resources</a></li>
+    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    <li><a onclick="showPage('dealer')" id="nav-dealer">Find a Dealer</a></li>
+  </ul>
+  <div class="nav-right"><button class="nav-cta" onclick="showPage('dealer')">Find a Dealer</button></div>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+</nav>
+
+<div id="page-home" class="page active">
+  <section class="hero">
+    <img class="hero-img" src="https://24202603.fs1.hubspotusercontent-na1.net/hubfs/24202603/florestone-6032ts-3w-unit-deco.jpg" alt="Florestone shower unit" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
+    <div class="hero-img-overlay2"></div><div class="hero-img-overlay"></div><div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="ti ti-award"></i> Trusted by contractors since 1969</div>
+      <h1>Built for the job site.<br><em>Spec'd for the long run.</em></h1>
+      <p>Shower bases, ADA-compliant units, and complete bath solutions engineered for contractors, architects, and builders who need reliability at volume.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showPage('dealer')"><i class="ti ti-map-pin"></i> Find a Dealer</button>
+        <button class="btn btn-outline" onclick="showPage('products')">Browse Products</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Years Manufacturing</span></div>
+      <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Configurations</span></div>
+      <div class="stat"><span class="stat-num">ADA</span><span class="stat-label">Certified Line</span></div>
+      <div class="stat"><span class="stat-num">USA</span><span class="stat-label">Made in America</span></div>
+    </div>
+  </section>
+  <div class="trust-bar">
+    <div class="trust-item"><i class="ti ti-map"></i> Made in the USA</div>
+    <div class="trust-item"><i class="ti ti-accessible"></i> ADA & ANSI A117.1 Compliant</div>
+    <div class="trust-item"><i class="ti ti-building-factory-2"></i> Residential & Commercial</div>
+    <div class="trust-item"><i class="ti ti-file-description"></i> CAD & Spec Sheets Available</div>
+    <div class="trust-item"><i class="ti ti-truck"></i> Nationwide Distributor Network</div>
+  </div>
+  <section class="section">
+    <div class="section-header-row">
+      <div><div class="section-label">Product lines</div><div class="section-title">Everything your project requires</div><div class="section-sub" style="margin-top:8px">From standard shower bases to fully ADA-compliant barrier-free units, backed by spec sheets and CAD files.</div></div>
+      <button class="btn btn-accent" onclick="showPage('products')">View All Products <i class="ti ti-arrow-right"></i></button>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card" onclick="showProducts('shower-bases')"><div class="cat-img" style="background:#EDE4D6"><i class="ti ti-square-rounded-bottom"></i></div><div class="cat-body"><div class="cat-name">Shower Bases & Pans</div><div class="cat-count">F Series · S Series · T Series · RTM · NEO · Terrazzo · Barrier-Free</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+      <div class="cat-card" onclick="showProducts('ada')"><div class="cat-img" style="background:#D9E8F4"><i class="ti ti-accessible" style="color:rgba(43,95,142,.4)"></i></div><div class="cat-body"><div class="cat-name">ADA & Barrier-Free</div><div class="cat-count">Curbless · Roll-In · Transfer · Shower Seats</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+      <div class="cat-card" onclick="showProducts('stalls')"><div class="cat-img" style="background:#EDE4D6"><i class="ti ti-layout-sidebar-left-collapse"></i></div><div class="cat-body"><div class="cat-name">Shower Stalls & Walls</div><div class="cat-count">F Series · Complete enclosure units · Wall surrounds</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+      <div class="cat-card" onclick="showProducts('tub')"><div class="cat-img" style="background:#EDE4D6"><i class="ti ti-ripple"></i></div><div class="cat-body"><div class="cat-name">Tub / Shower Combos</div><div class="cat-count">Fiberglass · Acrylic · One-piece units</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+      <div class="cat-card" onclick="showProducts('baths')"><div class="cat-img" style="background:#EDE4D6"><i class="ti ti-bath"></i></div><div class="cat-body"><div class="cat-name">Bathtubs</div><div class="cat-count">Fiberglass baths · Soaking · Drop-in</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+      <div class="cat-card" onclick="showProducts('utility')"><div class="cat-img" style="background:#EDE4D6"><i class="ti ti-bucket"></i></div><div class="cat-body"><div class="cat-name">Utility & Mop Sinks</div><div class="cat-count">Commercial laundry · Mop service · Utility</div><div class="cat-arrow"><i class="ti ti-arrow-right"></i> View series</div></div></div>
+    </div>
+  </section>
+  <section class="section why-section">
+    <div class="section-header" style="text-align:center"><div class="section-label">Why contractors choose us</div><div class="section-title">Built on five decades of reliability</div></div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon"><i class="ti ti-map"></i></div><div class="why-title">Made in the USA</div><div class="why-text">Domestically manufactured with consistent quality standards and reliable lead times.</div></div>
+      <div class="why-card"><div class="why-icon"><i class="ti ti-accessible"></i></div><div class="why-title">ADA Expertise</div><div class="why-text">Comprehensive ADA-compliant shower line across curbless, roll-in, and transfer configurations.</div></div>
+      <div class="why-card"><div class="why-icon"><i class="ti ti-file-description"></i></div><div class="why-title">Spec-Ready Documentation</div><div class="why-text">CAD files, section PDFs, installation guides, and pricing available for every product.</div></div>
+      <div class="why-card"><div class="why-icon"><i class="ti ti-truck"></i></div><div class="why-title">Nationwide Distribution</div><div class="why-text">Authorized dealers and distributors across the country for project volume and local sourcing.</div></div>
+    </div>
+  </section>
+  <div class="dealer-section"><div class="dealer-inner"><div class="dealer-left"><h2>Find a dealer or distributor near you</h2><p>Search by ZIP code or city to find your closest source and get pricing.</p><div class="dealer-search"><input class="dealer-input" placeholder="Enter ZIP code or city..."><button class="dealer-btn" onclick="showPage('dealer')">Search</button></div></div><div class="map-mock"><i class="ti ti-map-2"></i><p>Interactive dealer map<br>Google Maps integration</p></div></div></div>
+  <section class="section"><div class="section-header-row"><div><div class="section-label">Project gallery</div><div class="section-title">Florestone in the field</div></div></div><div class="gallery-grid"><div class="gallery-card" style="background:#D4CCBF"><div class="gallery-bg"><i class="ti ti-building-hospital"></i></div><div class="gallery-overlay"><div class="gallery-tag">Healthcare · ADA Barrier-Free</div><div class="gallery-name">Riverside Medical Center</div><div class="gallery-sub">Model 3060F-BF · Roll-In configuration</div></div></div><div class="gallery-card" style="background:#C8C0B2"><div class="gallery-bg"><i class="ti ti-building-community"></i></div><div class="gallery-overlay"><div class="gallery-tag">Multifamily · Residential</div><div class="gallery-name">Park View Apartments</div><div class="gallery-sub">S Series · 64-unit installation</div></div></div><div class="gallery-card" style="background:#BCB4A6"><div class="gallery-bg"><i class="ti ti-building"></i></div><div class="gallery-overlay"><div class="gallery-tag">Hospitality · Commercial</div><div class="gallery-name">The Meridian Hotel</div><div class="gallery-sub">F Series w/ The Edge · 120 rooms</div></div></div></div></section>
+  <footer><div class="footer-top"><div class="footer-brand"><a class="logo" onclick="showPage('home')" style="font-size:22px;color:#fff;text-decoration:none">Flore<span style="color:var(--stone)">stone</span></a><p style="margin-top:12px">Quality shower and bath fixtures for residential and commercial projects. Manufactured in the USA since 1969.</p></div><div class="footer-col"><h4>Products</h4><ul><li><a onclick="showProducts('shower-bases')">Shower Bases</a></li><li><a onclick="showProducts('ada')">ADA & Barrier-Free</a></li><li><a onclick="showProducts('stalls')">Shower Stalls</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a onclick="showPage('why')">Why Florestone</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('dealer')">Find a Dealer</a></li></ul></div><div class="footer-col"><h4>Resources</h4><ul><li><a onclick="showPage('resources')">Spec Sheets</a></li><li><a onclick="showPage('resources')">CAD Downloads</a></li><li><a onclick="showPage('resources')">Installation Guides</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 Florestone Products. All rights reserved.</p><p>Privacy Policy · Terms of Use</p></div></footer>
+</div>
+
+<div id="page-products" class="page">
+  <div class="breadcrumb"><a onclick="showPage('home')">Home</a> <span>›</span> Products</div>
+  <div class="products-layout">
+    <aside class="sidebar">
+      <div class="sidebar-section"><div class="sidebar-section-title">Category</div><div class="filter-item"><input type="checkbox" id="cat-sb" checked><label for="cat-sb">Shower Bases</label></div><div class="filter-item"><input type="checkbox" id="cat-ss"><label for="cat-ss">Shower Stalls</label></div><div class="filter-item"><input type="checkbox" id="cat-ts"><label for="cat-ts">Tub Showers</label></div><div class="filter-item"><input type="checkbox" id="cat-bt"><label for="cat-bt">Bathtubs</label></div></div>
+      <div class="filter-divider"></div>
+      <div class="sidebar-section"><div class="sidebar-section-title">Series</div><div class="filter-item"><input type="checkbox" id="ser-f"><label for="ser-f">F Series</label></div><div class="filter-item"><input type="checkbox" id="ser-s"><label for="ser-s">S Series</label></div><div class="filter-item"><input type="checkbox" id="ser-t"><label for="ser-t">T Series</label></div><div class="filter-item"><input type="checkbox" id="ser-bf"><label for="ser-bf">Barrier-Free</label></div></div>
+      <div class="filter-divider"></div>
+      <div class="sidebar-section"><div class="ada-toggle-wrap"><span class="ada-toggle-label"><i class="ti ti-accessible" style="font-size:14px;vertical-align:-2px;margin-right:4px"></i> ADA only</span><div class="toggle-pill"></div></div></div>
+    </aside>
+    <main class="products-main">
+      <div class="products-toolbar"><div class="products-count">Showing <strong>48 products</strong> across all categories</div><select class="sort-select"><option>Sort: Featured</option><option>Sort: A-Z</option><option>Sort: Series</option><option>Sort: ADA First</option></select></div>
+      <div class="products-section">
+        <div class="products-section-header"><h2>Shower Bases</h2><div class="section-docs"><a class="doc-btn" href="#"><i class="ti ti-file-text"></i> Installation PDF</a><a class="doc-btn" href="#"><i class="ti ti-currency-dollar"></i> Pricing</a><a class="doc-btn" href="#"><i class="ti ti-box"></i> Section CADs</a></div></div>
+        <div class="product-grid" id="productGrid"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="page-detail" class="page">
+  <div class="breadcrumb"><a onclick="showPage('home')">Home</a> <span>›</span><a onclick="showPage('products')"> Products</a> <span>›</span><span id="detail-breadcrumb">Product</span></div>
+  <div class="product-detail-layout">
+    <div class="product-detail-img"><i class="ti ti-square-rounded-bottom" id="detail-icon"></i><p>Product image via Salsify PIM</p></div>
+    <div class="product-detail-info"><h1 id="detail-name">Product Name</h1><div class="detail-sub" id="detail-sub">Series description</div><div class="detail-badges" id="detail-badges"></div><table class="specs-table" id="detail-specs"></table><div style="margin-bottom:24px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:12px">Downloads</div><div class="detail-downloads"><a class="detail-dl-btn pdf" href="#"><i class="ti ti-file-type-pdf"></i> Spec Sheet PDF</a><a class="detail-dl-btn cad" href="#"><i class="ti ti-box"></i> CAD File</a></div></div><button class="btn btn-accent" onclick="showPage('dealer')"><i class="ti ti-map-pin"></i> Find a dealer for this product</button></div>
+  </div>
+</div>
+
+<div id="page-why" class="page">
+  <div class="why-hero"><h1>Why Florestone</h1><p>Five decades of American manufacturing, industry-leading ADA compliance, and spec-ready documentation built for professionals.</p></div>
+  <section class="section"><div class="story-grid"><div class="story-text"><div class="section-label">Our story</div><h2>American-made since 1969</h2><p>Florestone has been manufacturing shower and bath fixtures in the United States for over five decades.</p><p>Every product is designed and manufactured domestically, giving direct control over quality, lead times, and project specifications.</p></div><div class="story-img"><i class="ti ti-building-factory-2"></i></div></div></section>
+  <section class="section" style="background:var(--sand);padding-top:56px;padding-bottom:56px"><div class="stats-banner-inner"><div class="stat-block"><div class="stat-block-num">50+</div><div class="stat-block-label">Years in manufacturing</div></div><div class="stat-block"><div class="stat-block-num">200+</div><div class="stat-block-label">Product configurations</div></div><div class="stat-block"><div class="stat-block-num">48</div><div class="stat-block-label">US states served</div></div><div class="stat-block"><div class="stat-block-num">ADA</div><div class="stat-block-label">Full compliant line</div></div></div></section>
+  <section class="section"><div class="section-header" style="text-align:center"><div class="section-label">Certifications & compliance</div><div class="section-title">Built to the standards that matter</div></div><div class="certs-grid"><div class="cert-card"><div class="why-icon" style="margin:0 auto 16px"><i class="ti ti-accessible"></i></div><div class="cat-name">ADA Compliant</div><div class="cat-count">Requirements met across the barrier-free product line.</div></div><div class="cert-card"><div class="why-icon" style="margin:0 auto 16px"><i class="ti ti-certificate"></i></div><div class="cat-name">ANSI A117.1</div><div class="cat-count">Accessible and usable buildings and facilities standard.</div></div><div class="cert-card"><div class="why-icon" style="margin:0 auto 16px"><i class="ti ti-map"></i></div><div class="cat-name">Made in USA</div><div class="cat-count">Designed and manufactured domestically.</div></div></div></section>
+</div>
+
+<div id="page-dealer" class="page">
+  <div class="dealer-page-hero"><h1>Find a Dealer or Distributor</h1><p>Search our nationwide network of authorized Florestone dealers and distributors.</p><div class="dealer-search-big"><input class="dealer-input-big" placeholder="Enter ZIP code or city..."><button class="dealer-btn-big">Search</button></div></div>
+  <div class="dealer-tabs"><div class="dealer-tab active">Dealers</div><div class="dealer-tab">Distributors</div><div class="dealer-tab">Online</div><div class="dealer-tab">Become a Dealer</div></div>
+  <div class="dealer-content"><div class="dealer-list"><div class="dealer-card-item active"><h4>Pacific Bath Supply Co.</h4><p>1240 Industrial Blvd, Los Angeles, CA 90021<br>(213) 555-0148 · Mon-Fri 7am-5pm</p><div class="dealer-tags"><span class="d-tag">Authorized Dealer</span><span class="d-tag">ADA Specialist</span></div></div><div class="dealer-card-item"><h4>Western Plumbing Distributors</h4><p>889 Commerce Way, San Diego, CA 92101<br>(619) 555-0210 · Mon-Sat 8am-6pm</p><div class="dealer-tags"><span class="d-tag">Distributor</span><span class="d-tag">Volume Orders</span></div></div><div class="dealer-card-item"><h4>Allied Bath & Kitchen</h4><p>3300 Harbor Blvd, Anaheim, CA 92805<br>(714) 555-0337 · Mon-Fri 8am-5pm</p><div class="dealer-tags"><span class="d-tag">Authorized Dealer</span></div></div></div><div class="map-area"><i class="ti ti-map-2"></i><p>Interactive Google Maps dealer locator</p><span class="map-note">Powered by Google Maps API + dealer data</span></div></div>
+</div>
+
+<div id="page-resources" class="page">
+  <div class="breadcrumb"><a onclick="showPage('home')">Home</a> <span>›</span> Resources</div>
+  <section class="section"><div class="section-header"><div class="section-label">Downloads & documentation</div><div class="section-title">Resources & Literature</div><div class="section-sub" style="margin-top:8px">All spec sheets, CAD files, and installation guides pulled from Salsify and updated automatically.</div></div><div class="resources-grid"><div class="resource-card"><div class="resource-icon pdf-icon"><i class="ti ti-file-type-pdf"></i></div><div class="resource-name">S Series Recess Bases - Spec Sheet</div><div class="resource-meta">Installation dimensions, materials, color options, and compliance notes.</div><a class="resource-dl" href="#"><i class="ti ti-download"></i> Download PDF</a></div><div class="resource-card"><div class="resource-icon"><i class="ti ti-box"></i></div><div class="resource-name">S Series Recess Bases - CAD File</div><div class="resource-meta">Section CAD drawing for architectural specification.</div><a class="resource-dl" href="#"><i class="ti ti-download"></i> Download CAD</a></div><div class="resource-card"><div class="resource-icon pdf-icon"><i class="ti ti-file-type-pdf"></i></div><div class="resource-name">Model 3060F-BF - ADA Spec Sheet</div><div class="resource-meta">Full ADA & ANSI A117.1 compliance documentation.</div><a class="resource-dl" href="#"><i class="ti ti-download"></i> Download PDF</a></div></div></section>
+</div>
+
+<div id="page-contact" class="page">
+  <div class="breadcrumb"><a onclick="showPage('home')">Home</a> <span>›</span> Contact</div>
+  <div class="contact-layout"><div class="contact-left"><h1>Get in touch</h1><p>Whether you're specifying a project, placing a volume order, or need technical documentation, our team is ready to help.</p><div class="contact-info-item"><div class="contact-info-icon"><i class="ti ti-phone"></i></div><div class="contact-info-text"><p>Phone</p><strong>(800) 446-2647</strong></div></div><div class="contact-info-item"><div class="contact-info-icon"><i class="ti ti-mail"></i></div><div class="contact-info-text"><p>Email</p><strong>info@florestone.com</strong></div></div><div class="contact-info-item"><div class="contact-info-icon"><i class="ti ti-map-pin"></i></div><div class="contact-info-text"><p>Address</p><strong>City of Industry, CA</strong></div></div></div><div class="contact-form"><h2>Send us a message</h2><p>For contractor inquiries, volume pricing, or project specifications.</p><div class="form-row"><div class="form-group"><label>First Name</label><input placeholder="John"></div><div class="form-group"><label>Last Name</label><input placeholder="Smith"></div></div><div class="form-group"><label>Company / Organization</label><input placeholder="ABC Construction Inc."></div><div class="form-row"><div class="form-group"><label>Email</label><input type="email" placeholder="john@company.com"></div><div class="form-group"><label>Phone</label><input placeholder="(555) 000-0000"></div></div><div class="form-group"><label>I am a...</label><select><option>Select your role</option><option>Contractor / Builder</option><option>Architect / Designer</option><option>Facility Manager</option><option>Distributor / Dealer</option></select></div><div class="form-group"><label>Message</label><textarea placeholder="Tell us about your project..."></textarea></div><button class="form-submit">Send Message <i class="ti ti-arrow-right" style="font-size:14px;vertical-align:-2px"></i></button></div></div>
+</div>
+
+<script>
+const products={
+  's-series-recess-edge':{name:'S Series Recess Bases w/ The Edge',sub:'S Series · Recessed shower base with premium edge treatment',series:'S Series',ada:false,type:'Recess',icon:'ti ti-square-rounded-bottom',specs:[['Dimensions','36x36, 36x48, 36x60'],['Type','Recessed'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit, Bone'],['Threshold','4 inch standard'],['Drain','Center or offset']]},
+  's-series-recess':{name:'S Series Recess Shower Bases',sub:'S Series · Standard recessed shower base',series:'S Series',ada:false,type:'Recess',icon:'ti ti-square-rounded-bottom',specs:[['Dimensions','32x32, 36x36'],['Type','Recessed'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit'],['Threshold','4 inch standard'],['Drain','Center']]},
+  's-series-3636-corner':{name:'S Series Model 3636-2 Corner',sub:'S Series · Two-wall corner installation base',series:'S Series',ada:false,type:'Corner',icon:'ti ti-square-rounded-bottom',specs:[['Dimensions','36x36'],['Type','Corner / Two-wall'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit, Bone'],['Threshold','4 inch standard'],['Drain','Corner offset']]},
+  'f-series-edge':{name:'F Series Bases w/ The Edge',sub:'F Series · Standard base with premium edge detail',series:'F Series',ada:false,type:'Standard',icon:'ti ti-square-rounded-bottom',specs:[['Dimensions','36x36, 42x42'],['Type','Standard'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit, Bone, Grey'],['Threshold','4 inch standard'],['Drain','Center']]},
+  '3060f-bf':{name:'Model 3060F-BF Barrier-Free',sub:'Barrier-Free Series · ADA & ANSI A117.1 compliant curbless base',series:'BF Series',ada:true,type:'Barrier-Free',icon:'ti ti-accessible',specs:[['Dimensions','30x60'],['Type','Curbless / Barrier-Free'],['Compliance','ADA · ANSI A117.1'],['Material','Acrylic/Gelcoat'],['Colors','White, Bone'],['Drain','Linear or center']]},
+  '42f-neo':{name:'Model 42F NEO',sub:'NEO Series · Neo-angle corner installation base',series:'NEO',ada:false,type:'Neo-Angle',icon:'ti ti-square-rotated',specs:[['Dimensions','42x42'],['Type','Neo-angle corner'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit'],['Threshold','4 inch standard'],['Drain','Center offset']]},
+  't100':{name:'T Series Model 100 Bases',sub:'T Series · Standard T Series shower base',series:'T Series',ada:false,type:'Standard',icon:'ti ti-square-rounded-bottom',specs:[['Dimensions','32x60, 36x60'],['Type','Standard'],['Material','Acrylic/Gelcoat'],['Colors','White, Biscuit, Bone'],['Threshold','4 inch standard'],['Drain','End or center']]},
+  't400-bf':{name:'T Series Model 400 Barrier-Free',sub:'T Series · Roll-in ADA compliant shower base',series:'T Series',ada:true,type:'Roll-In',icon:'ti ti-accessible',specs:[['Dimensions','36x60'],['Type','Roll-In / Barrier-Free'],['Compliance','ADA · ANSI A117.1'],['Material','Acrylic/Gelcoat'],['Colors','White, Bone'],['Drain','Linear']]},
+  't500-bf':{name:'T Series Model 500 Barrier-Free',sub:'T Series · Transfer ADA compliant shower base',series:'T Series',ada:true,type:'Transfer',icon:'ti ti-accessible',specs:[['Dimensions','36x36'],['Type','Transfer / Barrier-Free'],['Compliance','ADA · ANSI A117.1'],['Material','Acrylic/Gelcoat'],['Colors','White'],['Drain','Center']]}
+};
+function renderProducts(){
+  const grid=document.getElementById('productGrid');
+  grid.innerHTML=Object.entries(products).map(([id,p])=>`
+    <div class="product-card" onclick="showDetail('${id}')">
+      <div class="card-img" style="background:${p.ada?'#D9E8F4':'#EDE4D6'}">
+        <i class="${p.icon}" style="${p.ada?'color:rgba(43,95,142,.4)':''}"></i><span class="card-img-label">Image via Salsify</span>
+        <div class="series-badge">${p.series}</div>${p.ada?'<div class="ada-badge">ADA</div>':''}
+      </div>
+      <div class="card-body"><div class="card-name">${p.name}</div><div class="card-sub">${p.sub.split(' · ')[1]||p.sub}</div>
+      <div class="card-specs">${p.specs.slice(0,2).map(s=>`<span class="spec-pill">${s[1].split(',')[0]}</span>`).join('')}</div>
+      <div class="card-actions"><a class="dl-btn pdf" href="#" onclick="event.stopPropagation()"><i class="ti ti-file-type-pdf"></i> PDF</a><a class="dl-btn cad" href="#" onclick="event.stopPropagation()"><i class="ti ti-box"></i> CAD</a><a class="dl-btn view" href="#"><i class="ti ti-arrow-right"></i> View</a></div></div>
+    </div>`).join('');
+}
+function closeMenu(){document.body.classList.remove('menu-open');mobileMenuBtn.setAttribute('aria-expanded','false');mobileMenuBtn.innerHTML='<i class="ti ti-menu-2"></i>'}
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const pg=document.getElementById('page-'+id);if(pg)pg.classList.add('active');
+  const nav=document.getElementById('nav-'+id);if(nav)nav.classList.add('active');
+  closeMenu();window.scrollTo(0,0);
+}
+function showProducts(){showPage('products')}
+function showDetail(id){
+  const p=products[id];if(!p)return;
+  document.getElementById('detail-breadcrumb').textContent=p.name;
+  document.getElementById('detail-name').textContent=p.name;
+  document.getElementById('detail-sub').textContent=p.sub;
+  const icon=document.getElementById('detail-icon');icon.className=p.icon;icon.style.color=p.ada?'rgba(43,95,142,.35)':'rgba(196,184,168,.4)';
+  document.getElementById('detail-badges').innerHTML=`<span class="detail-badge series">${p.series}</span>${p.ada?'<span class="detail-badge ada">ADA Compliant</span>':''}<span class="detail-badge type">${p.type}</span>`;
+  document.getElementById('detail-specs').innerHTML=p.specs.map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  showPage('detail');document.getElementById('nav-products').classList.add('active');
+}
+const mobileMenuBtn=document.getElementById('mobileMenuBtn');
+mobileMenuBtn.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');mobileMenuBtn.setAttribute('aria-expanded',String(open));mobileMenuBtn.innerHTML=open?'<i class="ti ti-x"></i>':'<i class="ti ti-menu-2"></i>'});
+document.querySelectorAll('.dealer-tab').forEach(tab=>tab.addEventListener('click',function(){document.querySelectorAll('.dealer-tab').forEach(t=>t.classList.remove('active'));this.classList.add('active')}));
+window.addEventListener('load',()=>document.body.classList.add('ready'));
+renderProducts();
+</script>
+</body>
+</html>
