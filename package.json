@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "serve out -l 3000 -s & serve out -l 8001 -s & wait",
+    "build": "next build && cp -r out build",
+    "start": "serve build -l 8001 -s",
     "lint": "eslint"
   },
   "dependencies": {
