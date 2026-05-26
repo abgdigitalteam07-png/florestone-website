@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "serve out -l 3000 -s & serve out -l 8001 -s & wait",
     "lint": "eslint"
   },
   "dependencies": {
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "serve": "^14.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
