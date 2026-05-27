@@ -1,39 +1,31 @@
 import type { Metadata } from 'next';
-import { DM_Sans, DM_Serif_Display, JetBrains_Mono } from 'next/font/google';
+import { Montserrat, Open_Sans } from 'next/font/google';
 import './globals.css';
 
-const dmSans = DM_Sans({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
-  variable: '--font-dm-sans',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
-const dmSerif = DM_Serif_Display({
+const openSans = Open_Sans({
   subsets: ['latin'],
-  weight: '400',
-  style: ['normal', 'italic'],
-  variable: '--font-dm-serif',
-  display: 'swap',
-});
-
-const jbMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jb-mono',
+  weight: ['300', '400', '600'],
+  variable: '--font-open-sans',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Florestone | Family-Built Shower Bases, ADA Units & Terrazzo Mop Sinks Since 1947',
+  title: 'Florestone | Made for the Trade — Shower Bases, ADA Units & Bath Solutions',
   description:
-    'Florestone is a three-generation family business founded in 1947 by Ray and Ann Flores. Saflor® recess shower bases, F Series RTM fiberglass with AcrylX™, T Series cast terrazzo, ADA barrier-free, terrazzo mop sinks and bathtubs — manufactured in Madera, CA and Denison, TX.',
+    'Florestone manufactures shower bases, ADA barrier-free units, terrazzo mop sinks and complete bath solutions in the USA. Spec sheets, CAD files, and a nationwide dealer network for contractors, architects, and builders.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.florestone.com'),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable} ${jbMono.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body>{children}</body>
     </html>
   );

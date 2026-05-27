@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const navLinks = [
-  { label: 'Catalog', href: '/products' },
-  { label: 'Our Story', href: '/why-florestone' },
+  { label: 'Products', href: '/products' },
+  { label: 'Why Florestone', href: '/why-florestone' },
   { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -14,24 +14,37 @@ export default function Navbar({ activePage }: { activePage?: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--color-offwhite)]/95 backdrop-blur-md border-b border-[var(--color-line)]">
+    <nav className="sticky top-0 z-50 bg-white/97 backdrop-blur-md border-b border-[var(--color-line)]">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
-        <Link href="/" className="shrink-0 flex items-baseline gap-1">
-          <span className="font-display text-2xl text-[var(--color-charcoal)] tracking-tight leading-none">
-            Flore<span className="text-[var(--color-accent)]">stone</span>
+
+        {/* Logo */}
+        <Link href="/" className="shrink-0 flex flex-col leading-none group">
+          <span
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[22px] tracking-[0.04em] leading-none"
+          >
+            <span className="font-light text-[var(--color-primary)]">FLORE</span>
+            <span className="font-semibold text-[var(--color-secondary)]">STONE</span>
           </span>
-          <span className="hidden sm:inline-block text-[10px] uppercase tracking-[0.18em] text-[var(--color-stone-dark)] ml-2">
-            Est. 1947
+          <span
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[8px] font-semibold tracking-[0.22em] text-[var(--color-text-light)] mt-0.5"
+          >
+            MADE FOR THE TRADE
           </span>
         </Link>
 
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className={`px-4 py-2 text-sm font-body text-[var(--color-slate)] hover:text-[var(--color-charcoal)] rounded-md transition-colors ${
-                activePage === l.href ? 'text-[var(--color-charcoal)] font-medium' : ''
+              style={{ fontFamily: 'var(--font-heading)' }}
+              className={`px-4 py-2 text-[12px] font-medium tracking-[0.06em] uppercase transition-colors rounded-sm ${
+                activePage === l.href
+                  ? 'text-[var(--color-primary)] bg-[var(--color-primary-light)]'
+                  : 'text-[var(--color-text-muted)] hover:text-[var(--color-secondary)]'
               }`}
             >
               {l.label}
@@ -39,35 +52,40 @@ export default function Navbar({ activePage }: { activePage?: string }) {
           ))}
         </div>
 
+        {/* CTA */}
         <Link
           href="/find-a-dealer"
-          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] hover:bg-[var(--color-accent-dark)] text-white text-sm font-body font-medium rounded-md transition-colors"
+          style={{ fontFamily: 'var(--font-heading)' }}
+          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white text-[12px] font-semibold tracking-[0.08em] uppercase rounded transition-colors"
         >
           Find a Dealer
         </Link>
 
+        {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-[var(--color-charcoal)] p-2"
+          className="lg:hidden text-[var(--color-secondary)] p-2"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
           <div className="w-6 space-y-1.5">
-            <span className={`block h-0.5 bg-[var(--color-charcoal)] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block h-0.5 bg-[var(--color-charcoal)] transition-opacity ${open ? 'opacity-0' : ''}`} />
-            <span className={`block h-0.5 bg-[var(--color-charcoal)] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block h-0.5 bg-[var(--color-secondary)] transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block h-0.5 bg-[var(--color-secondary)] transition-opacity ${open ? 'opacity-0' : ''}`} />
+            <span className={`block h-0.5 bg-[var(--color-secondary)] transition-transform ${open ? '-rotate-45 -translate-y-2' : ''}`} />
           </div>
         </button>
       </div>
 
+      {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-[var(--color-offwhite)] border-t border-[var(--color-line)] px-6 pb-4">
+        <div className="lg:hidden bg-white border-t border-[var(--color-line)] px-6 pb-5">
           {navLinks.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-sm font-body text-[var(--color-slate)] hover:text-[var(--color-charcoal)] border-b border-[var(--color-line)]/40"
+              style={{ fontFamily: 'var(--font-heading)' }}
+              className="block py-3.5 text-[13px] font-medium tracking-[0.06em] uppercase text-[var(--color-text-muted)] hover:text-[var(--color-primary)] border-b border-[var(--color-line)]"
             >
               {l.label}
             </Link>
@@ -75,9 +93,10 @@ export default function Navbar({ activePage }: { activePage?: string }) {
           <Link
             href="/find-a-dealer"
             onClick={() => setOpen(false)}
-            className="mt-4 block w-full text-center py-3 bg-[var(--color-accent)] text-white text-sm font-body font-medium rounded-md"
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="mt-4 block w-full text-center py-3 bg-[var(--color-primary)] text-white text-[12px] font-semibold tracking-[0.08em] uppercase rounded"
           >
-            Find a Wholesaler
+            Find a Dealer
           </Link>
         </div>
       )}

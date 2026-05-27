@@ -16,12 +16,12 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
         <div key={i} className="border border-[var(--color-line)] rounded-lg overflow-hidden bg-white">
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[var(--color-sand)]/60 transition-colors"
+            className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[var(--color-primary-light)] transition-colors"
             aria-expanded={open === i}
           >
-            <span className="font-body font-medium text-[var(--color-charcoal)] pr-4">{item.q}</span>
+            <span className="font-semibold text-[var(--color-secondary)] text-[15px] pr-4" style={{ fontFamily: 'var(--font-heading)' }}>{item.q}</span>
             <span
-              className={`text-[var(--color-accent)] text-2xl font-display shrink-0 transition-transform leading-none ${
+              className={`text-[var(--color-primary)] text-2xl shrink-0 transition-transform leading-none ${
                 open === i ? 'rotate-45' : ''
               }`}
               aria-hidden
@@ -30,8 +30,8 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             </span>
           </button>
           {open === i && (
-            <div className="px-6 pb-5 -mt-1 border-t border-[var(--color-line)]/40">
-              <p className="font-body text-[var(--color-slate)] leading-relaxed pt-4">{item.a}</p>
+            <div className="px-6 pb-5 -mt-1 border-t border-[var(--color-line)]">
+              <p className="text-[var(--color-text-muted)] leading-relaxed pt-4 text-[14px] font-light">{item.a}</p>
             </div>
           )}
         </div>

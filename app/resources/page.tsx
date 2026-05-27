@@ -3,173 +3,254 @@ import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CTABand from '@/components/shared/CTABand';
-import { SERIES, SeriesKey } from '@/lib/products';
+import { JsonLd, breadcrumbSchema, faqSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Resources — Spec Sheets, CAD, Installation & ADA Documentation | Florestone',
+  title: 'Spec Sheets, CAD Files & Resources | Florestone',
   description:
-    'Florestone PDF spec sheets, section CAD files, installation guides and ADA documentation. IAPMO File 0687 · UPC · ANSI Z124 certified. Documentation for Saflor®, AcrylX™, T Series terrazzo, mop sinks and bathtubs.',
+    'Download Florestone spec sheets, CAD drawings, installation guides, and ADA compliance documentation. PDF and CAD files available for S Series Saflor®, F Series AcrylX™, T Series Terrazzo, and barrier-free shower products.',
 };
 
-const generalDocs = [
-  { title: 'Florestone Full Product Catalog', scope: 'All Series + Mop Sinks + Tubs', kind: 'PDF' },
-  { title: 'ADA Barrier-Free Reference Guide', scope: 'T-400 / T-500 / 4040F / Saflor® BF', kind: 'PDF' },
-  { title: 'AcrylX™ Care & Repair Guide', scope: 'F Series + Bathtubs', kind: 'PDF' },
-  { title: 'Saflor® Installation Guide', scope: 'S Series Recess + Wedge-Lok® drain', kind: 'PDF' },
-  { title: 'Terrazzo Mop Sink Spec Sheets', scope: 'Models 5 through 99 + MSR', kind: 'PDF' },
-  { title: 'Warranty Statement', scope: 'Lifetime residential · 30-yr commercial', kind: 'PDF' },
-  { title: 'Codes & Listings Reference', scope: 'IAPMO File 0687 · UPC · ANSI Z124', kind: 'PDF' },
-  { title: 'F Series Tub-Shower Installation', scope: '6032TS / 6034TS / 6036TS / 6042TS', kind: 'PDF' },
-  { title: 'Prop 65 Disclosure', scope: 'California compliance', kind: 'PDF' },
+type ResourceType = 'pdf' | 'cad' | 'install' | 'cert';
+
+interface Resource {
+  name: string;
+  description: string;
+  type: ResourceType;
+  category: string;
+}
+
+const resources: Resource[] = [
+  // PDF Spec Sheets
+  { name: 'S Series Saflor® Spec Sheet', description: 'Complete dimensions, materials, colors, compliance', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'F Series AcrylX™ Spec Sheet', description: 'RTM fiberglass bases, stalls, tub-showers', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'T Series Terrazzo Spec Sheet', description: 'Models 100–500, dimensions, 3000 PSI', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'Barrier-Free / ADA Documentation', description: 'All ADA models, ANSI A117.1 compliance', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'Utility & Mop Sink Catalog', description: 'Commercial terrazzo and molded utility sinks', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'Complete Product Catalog', description: 'Full Florestone product line overview', type: 'pdf', category: 'PDF Spec Sheets' },
+  // CAD Files
+  { name: 'S Series CAD Drawings', description: 'Section CAD for all Saflor® recess configurations', type: 'cad', category: 'CAD Files' },
+  { name: 'F Series CAD Drawings', description: 'Section CAD for F Series bases and tub-showers', type: 'cad', category: 'CAD Files' },
+  { name: 'T Series CAD Drawings', description: 'Terrazzo Models 100–500 section drawings', type: 'cad', category: 'CAD Files' },
+  { name: 'Barrier-Free CAD Package', description: 'ADA models 400, 500, 23-2HR CAD files', type: 'cad', category: 'CAD Files' },
+  // Installation Guides
+  { name: 'Shower Base Installation Guide', description: 'Step-by-step for all series', type: 'install', category: 'Installation Guides' },
+  { name: 'Barrier-Free Installation Guide', description: 'ADA curbless, roll-in, and transfer install', type: 'install', category: 'Installation Guides' },
+  { name: 'Mop Sink Installation Guide', description: 'Wall-mount and floor-mount terrazzo sinks', type: 'install', category: 'Installation Guides' },
+  // Certifications
+  { name: 'IAPMO Certification — File 0687', description: 'Current IAPMO Research and Testing listing', type: 'cert', category: 'Certifications' },
+  { name: 'ADA Compliance Documentation', description: 'Americans with Disabilities Act compliance docs', type: 'cert', category: 'Certifications' },
 ];
 
-const seriesOrder: SeriesKey[] = ['s-series', 'f-series', 't-series', 'barrier-free'];
+const faqs = [
+  {
+    q: 'How do I get a spec sheet for a specific Florestone product?',
+    a: 'All current spec sheets are available for download on this page in PDF format. If you need a spec sheet for a discontinued model or require a project-specific document, contact our sales team at (800) 446-2647 or email info@florestone.com.',
+  },
+  {
+    q: 'What CAD file formats are available for Florestone products?',
+    a: 'Florestone provides section CAD drawings in DWG and PDF formats for all current series. Files include plan view, elevation, and section views suitable for architectural and engineering submissions.',
+  },
+  {
+    q: 'Can I request custom documentation for a large project submittal?',
+    a: 'Yes. For healthcare, multifamily, hospitality, or institutional projects requiring custom engineer-submittal packages — including custom CAD, ADA documentation, and IAPMO certification letters — contact our sales team at (800) 446-2647.',
+  },
+];
+
+const typeConfig: Record<ResourceType, { label: string; iconBg: string; iconText: string; iconBorder: string; abbr: string }> = {
+  pdf: {
+    label: 'PDF',
+    iconBg: 'bg-[var(--color-coral-light)]',
+    iconText: 'text-[var(--color-coral)]',
+    iconBorder: 'border-[var(--color-coral)]/20',
+    abbr: 'PDF',
+  },
+  cad: {
+    label: 'CAD',
+    iconBg: 'bg-[var(--color-primary-light)]',
+    iconText: 'text-[var(--color-primary)]',
+    iconBorder: 'border-[var(--color-primary)]/20',
+    abbr: 'CAD',
+  },
+  install: {
+    label: 'Install',
+    iconBg: 'bg-[var(--color-secondary)]/10',
+    iconText: 'text-[var(--color-secondary)]',
+    iconBorder: 'border-[var(--color-secondary)]/20',
+    abbr: 'GDE',
+  },
+  cert: {
+    label: 'Cert',
+    iconBg: 'bg-[var(--color-powder)]',
+    iconText: 'text-[var(--color-secondary)]',
+    iconBorder: 'border-[var(--color-secondary)]/20',
+    abbr: 'CERT',
+  },
+};
+
+const categories = ['PDF Spec Sheets', 'CAD Files', 'Installation Guides', 'Certifications'];
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Florestone Downloads & Documentation',
+  description: 'Spec sheets, CAD files, installation guides, and certifications for Florestone products.',
+  numberOfItems: categories.length,
+  itemListElement: categories.map((cat, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: cat,
+    url: `https://www.florestone.com/resources#${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+  })),
+};
 
 export default function ResourcesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home', url: 'https://www.florestone.com' },
+        { name: 'Resources', url: 'https://www.florestone.com/resources' },
+      ])} />
+      <JsonLd data={itemListSchema} />
+      <JsonLd data={faqSchema(faqs)} />
+
       <Navbar activePage="/resources" />
 
-      {/* Breadcrumb */}
-      <div className="border-b border-[var(--color-line)] bg-white">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-12 py-3 text-xs text-[var(--color-slate)] font-mono uppercase tracking-wider">
-          <Link href="/" className="hover:text-[var(--color-accent)]">Home</Link>
-          <span className="mx-2 text-[var(--color-stone)]">/</span>
-          <span className="text-[var(--color-charcoal)]">Resources</span>
-        </div>
-      </div>
-
-      {/* Hero */}
-      <section className="bg-[var(--color-sand)] py-16 px-6 border-b border-[var(--color-line)]">
+      {/* Page Header */}
+      <section className="bg-white border-b border-[var(--color-line)] py-16 px-6">
         <div className="max-w-[1280px] mx-auto">
-          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)] mb-4">
-            Spec Sheets · CAD · Installation · ADA
+          <p
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
+          >
+            Downloads &amp; Documentation
           </p>
-          <h1 className="font-display text-[var(--color-charcoal)] text-4xl md:text-5xl xl:text-6xl leading-[1.05] mb-5 tracking-tight max-w-3xl">
-            Documentation the trade actually uses.
+          <h1
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl tracking-tight mb-4 max-w-2xl"
+          >
+            Resources &amp; Literature
           </h1>
-          <p className="font-body text-[var(--color-slate)] text-base md:text-lg leading-relaxed max-w-2xl">
-            Every Florestone product ships with a PDF spec sheet and section CAD. IAPMO listed (File 0687) and ANSI
-            Z124 documented — the signoffs your spec engineer and inspector look for.
+          <p className="text-[var(--color-text-muted)] font-light leading-relaxed max-w-2xl text-base">
+            Spec sheets, CAD files, installation guides, and certification documents for every Florestone product
+            series — ready to download for your project submittal.
           </p>
         </div>
       </section>
 
-      {/* By series */}
+      {/* Resource Grid by Category */}
       <section className="bg-[var(--color-offwhite)] py-16 px-6">
-        <div className="max-w-[1280px] mx-auto">
-          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)] mb-3">
-            By Shower Base Series
-          </p>
-          <h2 className="font-display text-[var(--color-charcoal)] text-3xl md:text-4xl mb-10 tracking-tight">
-            Pull spec by series.
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-5">
-            {seriesOrder.map((key) => {
-              const s = SERIES[key];
-              return (
-                <div
-                  key={key}
-                  className="bg-white rounded-xl border border-[var(--color-line)] p-7 hover:border-[var(--color-accent)] transition-colors"
+        <div className="max-w-[1280px] mx-auto space-y-14">
+          {categories.map((category) => {
+            const categoryResources = resources.filter((r) => r.category === category);
+            return (
+              <div key={category} id={category.toLowerCase().replace(/[^a-z0-9]/g, '-')}>
+                <p
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
                 >
-                  <div className="flex items-start justify-between mb-3 gap-3">
-                    <div>
-                      <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-stone-dark)] mb-1">
-                        {s.badge}
-                      </p>
-                      <h3 className="font-display text-2xl text-[var(--color-charcoal)] tracking-tight">
-                        {s.name} <span className="text-[var(--color-stone-dark)] text-base">— {s.subtitle}</span>
-                      </h3>
-                    </div>
-                    {s.ada && (
-                      <span className="text-[10px] font-mono uppercase tracking-[0.14em] bg-[var(--color-accent)] text-white rounded px-2 py-1 shrink-0">
-                        ADA
-                      </span>
-                    )}
-                  </div>
-                  <p className="font-body text-sm text-[var(--color-slate)] leading-relaxed mb-5">{s.description}</p>
+                  {category}
+                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {categoryResources.map((resource) => {
+                    const cfg = typeConfig[resource.type];
+                    return (
+                      <div
+                        key={resource.name}
+                        className="bg-white rounded-lg border border-[var(--color-line)] p-6 hover:border-[var(--color-primary)] hover:shadow-sm transition-all flex flex-col"
+                      >
+                        {/* Type badge */}
+                        <div className="mb-4">
+                          <span
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                            className={`inline-flex items-center px-2.5 py-1 rounded text-[10px] font-semibold tracking-[0.12em] uppercase border ${cfg.iconBg} ${cfg.iconText} ${cfg.iconBorder}`}
+                          >
+                            {cfg.abbr}
+                          </span>
+                        </div>
 
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    <span className="px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-[#C0392B]/5 text-[#C0392B] border border-[#C0392B]/20">
-                      Spec PDF
-                    </span>
-                    <span className="px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-[var(--color-accent-light)] text-[var(--color-accent)] border border-[var(--color-accent)]/20">
-                      Section CAD
-                    </span>
-                    <span className="px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-[var(--color-sand)] text-[var(--color-slate)] border border-[var(--color-line)]">
-                      Install Guide
-                    </span>
-                    {s.ada && (
-                      <span className="px-3 py-1.5 rounded-md text-xs font-mono font-medium bg-[var(--color-accent-light)] text-[var(--color-accent-dark)] border border-[var(--color-accent)]/20">
-                        ADA Compliance
-                      </span>
-                    )}
-                  </div>
+                        {/* Content */}
+                        <div className="flex-1">
+                          <h3
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                            className="font-semibold text-[var(--color-secondary)] text-base leading-snug mb-2"
+                          >
+                            {resource.name}
+                          </h3>
+                          <p className="text-[var(--color-text-muted)] font-light leading-relaxed text-sm">
+                            {resource.description}
+                          </p>
+                        </div>
 
-                  <Link
-                    href={`/${s.slug}`}
-                    className="inline-flex items-center gap-2 font-body font-medium text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-dark)]"
-                  >
-                    Open {s.name} documentation →
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* General documentation */}
-      <section className="bg-[var(--color-sand)] py-16 px-6 border-y border-[var(--color-line)]">
-        <div className="max-w-[1280px] mx-auto">
-          <p className="text-[11px] font-mono uppercase tracking-[0.16em] text-[var(--color-accent)] mb-3">
-            Library
-          </p>
-          <h2 className="font-display text-[var(--color-charcoal)] text-3xl md:text-4xl mb-10 tracking-tight">
-            Catalogs, guides &amp; compliance docs
-          </h2>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {generalDocs.map((doc) => (
-              <div
-                key={doc.title}
-                className="bg-white rounded-xl border border-[var(--color-line)] p-6 hover:border-[var(--color-accent)] transition-colors group cursor-pointer"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-md bg-[#C0392B]/8 text-[#C0392B] flex items-center justify-center font-mono text-xs font-medium shrink-0 group-hover:bg-[#C0392B]/15 transition-colors">
-                    {doc.kind}
-                  </div>
-                  <div>
-                    <h3 className="font-body font-medium text-[var(--color-charcoal)] text-sm leading-snug mb-1">
-                      {doc.title}
-                    </h3>
-                    <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-stone-dark)]">
-                      {doc.scope}
-                    </p>
-                  </div>
+                        {/* Download button */}
+                        <div className="mt-5 pt-4 border-t border-[var(--color-line)]">
+                          <Link
+                            href="#"
+                            style={{ fontFamily: 'var(--font-heading)' }}
+                            className={`inline-flex items-center gap-2 text-[12px] font-semibold tracking-[0.06em] uppercase transition-colors ${cfg.iconText} hover:opacity-75`}
+                            aria-label={`Download ${resource.name}`}
+                          >
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                              <polyline points="7 10 12 15 17 10" />
+                              <line x1="12" y1="15" x2="12" y2="3" />
+                            </svg>
+                            Download {cfg.label}
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
+      </section>
 
-          <div className="mt-8 bg-white border-l-4 border-[var(--color-accent)] rounded-r-xl p-6 max-w-3xl">
-            <p className="font-body text-sm text-[var(--color-charcoal)] leading-relaxed">
-              <strong className="font-medium">Need a custom drawing?</strong> Older spec sheets, project-specific
-              CADs, and engineer-submittal documentation can be requested through your Florestone wholesaler or
-              direct from sales at (800) 446-2647.
-            </p>
+      {/* FAQ Section */}
+      <section className="bg-white py-16 px-6 border-t border-[var(--color-line)]">
+        <div className="max-w-[1280px] mx-auto">
+          <p
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
+          >
+            Frequently Asked Questions
+          </p>
+          <h2
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl tracking-tight mb-10 max-w-2xl"
+          >
+            Documentation questions
+          </h2>
+          <div className="max-w-3xl space-y-6">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className="bg-[var(--color-offwhite)] rounded-lg border border-[var(--color-line)] p-6"
+              >
+                <h3
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="font-semibold text-[var(--color-secondary)] text-base mb-3 leading-snug"
+                >
+                  {faq.q}
+                </h3>
+                <p className="text-[var(--color-text-muted)] font-light leading-relaxed text-sm">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <CTABand
-        heading="Can't find a spec? Call the family."
-        body="Florestone has shipped documentation through the plumbing trade since 1947 — sales will pull it from the archive."
-        ctaLabel="Contact Sales"
-        ctaHref="/contact"
-        secondaryLabel="Find a Wholesaler"
-        secondaryHref="/find-a-dealer"
+        heading="Need a custom spec package?"
+        body="For project submittals, volume orders, and custom documentation — our sales team will pull exactly what your spec engineer needs."
+        ctaLabel="Find a Dealer"
+        ctaHref="/find-a-dealer"
+        secondaryLabel="Contact Sales"
+        secondaryHref="/contact"
       />
 
       <Footer />
