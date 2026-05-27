@@ -127,29 +127,31 @@ export default function HomePage() {
       <Navbar activePage="/" />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[600px] lg:min-h-[680px] flex items-center overflow-hidden bg-[var(--color-secondary)]">
-        {/* Background photo */}
-        <div className="absolute inset-0">
+      <section className="flex flex-col lg:flex-row overflow-hidden min-h-[600px] lg:min-h-[700px]">
+
+        {/* Mobile-only photo banner */}
+        <div className="relative h-56 sm:h-64 lg:hidden w-full overflow-hidden">
           <Image
-            src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-3460f-wht-deco.jpg"
+            src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg"
             alt="Florestone shower base installed in modern bathroom"
             fill
             priority
-            className="object-cover object-center animate-kenburns"
+            className="object-cover object-center"
           />
-          {/* Left gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-secondary)] via-[var(--color-secondary)]/80 to-transparent" />
-          {/* Bottom gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-secondary)]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[var(--color-secondary)]/30" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 py-20 lg:py-28">
-          <div className="max-w-xl">
-            {/* Eyebrow */}
+        {/* Left: text panel */}
+        <div className="relative flex items-center bg-[var(--color-secondary)] w-full lg:w-[52%] px-8 sm:px-12 lg:px-16 xl:px-20 py-14 lg:py-24">
+          {/* Vertical teal accent line — desktop right edge */}
+          <div className="absolute inset-y-0 right-0 w-[3px] bg-[var(--color-primary)]/25 hidden lg:block" />
+
+          <div className="relative z-10 max-w-[480px] w-full">
+
+            {/* Eyebrow badge */}
             <div
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-[var(--color-primary)]/40 rounded"
+              className="inline-flex items-center gap-2 mb-7 px-3 py-1.5 border border-[var(--color-primary)]/40 rounded"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
               <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--color-primary)]">
@@ -157,22 +159,25 @@ export default function HomePage() {
               </span>
             </div>
 
+            {/* H1 */}
             <h1
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="font-semibold text-white text-[2.6rem] sm:text-[3.2rem] lg:text-[3.8rem] leading-[1.08] tracking-tight mb-6"
+              className="font-semibold text-white text-[2.6rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] leading-[1.06] tracking-tight mb-6"
             >
               Built for the
               <br />
-              job site.
+              job&nbsp;site.
               <br />
-              <span className="text-[var(--color-primary)]">Spec'd to last.</span>
+              <span className="text-[var(--color-primary)]">Spec&rsquo;d to last.</span>
             </h1>
 
-            <p className="text-white/65 text-[16px] leading-[1.75] mb-8 max-w-md font-light">
+            {/* Body */}
+            <p className="text-white/65 text-[15px] lg:text-[16px] leading-[1.8] mb-9 font-light">
               Shower bases, ADA-compliant units, and complete bath solutions engineered in America for contractors, architects, and builders.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mb-12">
               <Link
                 href="/find-a-dealer"
                 style={{ fontFamily: 'var(--font-heading)' }}
@@ -183,39 +188,49 @@ export default function HomePage() {
               <Link
                 href="/products"
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 hover:border-white text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/60 text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded hover:bg-white/8 transition-colors"
               >
                 Browse Products
               </Link>
             </div>
+
+            {/* Stats row — anchored inside text panel */}
+            <div className="grid grid-cols-4 gap-0 border-t border-white/10 pt-8">
+              {[
+                { num: '75+', label: 'Years Mfg.' },
+                { num: '200+', label: 'Configs' },
+                { num: 'ADA', label: 'Certified' },
+                { num: 'USA', label: 'Made In' },
+              ].map((s, i) => (
+                <div key={s.label} className={`text-center ${i > 0 ? 'border-l border-white/10' : ''}`}>
+                  <span
+                    style={{ fontFamily: 'var(--font-heading)' }}
+                    className="block text-[22px] lg:text-[26px] font-semibold text-[var(--color-primary)] leading-none"
+                  >
+                    {s.num}
+                  </span>
+                  <span className="block text-[9px] lg:text-[10px] text-white/40 tracking-wider uppercase mt-1.5 font-light">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Stats strip — bottom right */}
-        <div className="absolute bottom-0 right-0 hidden lg:flex z-10">
-          {[
-            { num: '75+', label: 'Years Manufacturing' },
-            { num: '200+', label: 'Configurations' },
-            { num: 'ADA', label: 'Certified Line' },
-            { num: 'USA', label: 'Made in America' },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="px-7 py-5 border-l border-white/10 text-center"
-              style={{ backgroundColor: 'rgba(26,58,69,0.88)', backdropFilter: 'blur(12px)' }}
-            >
-              <span
-                style={{ fontFamily: 'var(--font-heading)' }}
-                className="block text-[26px] font-semibold text-[var(--color-primary)] leading-none"
-              >
-                {s.num}
-              </span>
-              <span className="block text-[10px] text-white/45 tracking-wider uppercase mt-1 font-light">
-                {s.label}
-              </span>
-            </div>
-          ))}
+        {/* Right: photo panel — desktop only */}
+        <div className="relative hidden lg:block lg:w-[48%] overflow-hidden">
+          <Image
+            src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg"
+            alt="Florestone shower base installed in modern bathroom"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Subtle left-edge blend with navy panel */}
+          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[var(--color-secondary)]/15 to-transparent" />
         </div>
+
       </section>
 
       {/* ── TRUST BAR ── */}
