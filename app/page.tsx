@@ -227,8 +227,8 @@ export default function HomePage() {
             priority
             className="object-cover object-center"
           />
-          {/* Subtle left-edge blend with navy panel */}
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[var(--color-secondary)]/15 to-transparent" />
+          {/* Gradient blend from navy panel into photo */}
+          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[var(--color-secondary)] via-[var(--color-secondary)]/40 to-transparent" />
         </div>
 
       </section>
