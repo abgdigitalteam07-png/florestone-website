@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 const BASE = 'https://www.florestone.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
