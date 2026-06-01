@@ -93,21 +93,21 @@ export default function HomePage() {
             style={{ fontFamily: 'var(--font-heading)' }}
             className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary-light)] mb-5 opacity-90"
           >
-            Made for the Trade
+            Made for the Trade · Est. 1947
           </p>
           <h1
             style={{ fontFamily: 'var(--font-heading)' }}
             className="font-bold text-white text-[2.6rem] sm:text-[3.4rem] lg:text-[4.2rem] xl:text-[5rem] leading-[1.05] tracking-tight mb-5 max-w-[900px]"
           >
-            Enduring Strength.
+            Built for the job&nbsp;site.
             <br />
-            Classic Beauty.
+            Spec&rsquo;d to last.
           </h1>
           <p
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-white/70 text-[16px] sm:text-[18px] mb-8 font-light tracking-wide"
+            className="text-white/70 text-[16px] sm:text-[18px] mb-8 font-light tracking-wide max-w-[560px]"
           >
-            Family-built since 1947. Manufactured in the USA.
+            Shower bases, ADA units, and complete bath solutions engineered in America for contractors, architects, and builders.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
