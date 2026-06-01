@@ -14,14 +14,6 @@ export const metadata: Metadata = {
     'Florestone manufactures shower bases, ADA barrier-free units, terrazzo mop sinks and complete bath solutions in the USA. Spec sheets, CAD files, and a nationwide dealer network.',
 };
 
-const trustItems = [
-  { icon: '🇺🇸', label: 'Made in the USA' },
-  { icon: '♿', label: 'ADA & ANSI A117.1' },
-  { icon: '📋', label: 'IAPMO File 0687' },
-  { icon: '📐', label: 'CAD & Spec Sheets' },
-  { icon: '🏪', label: 'Nationwide Dealers' },
-];
-
 const categories = [
   {
     href: '/s-series',
@@ -29,7 +21,6 @@ const categories = [
     title: 'Saflor® Recess Bases',
     body: 'Compression-molded recess shower receptors with Wedge-Lok® drain seal. The original since 1965.',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg',
-    badge: 'Saflor®',
   },
   {
     href: '/f-series',
@@ -37,7 +28,6 @@ const categories = [
     title: 'RTM Fiberglass · AcrylX™',
     body: 'RTM bases, stalls, 3-piece walls and 60-inch tub-shower units in durable AcrylX™.',
     image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-4242f-wht-deco.jpg',
-    badge: 'AcrylX™',
   },
   {
     href: '/t-series',
@@ -45,7 +35,6 @@ const categories = [
     title: 'Cast Terrazzo Bases',
     body: 'Solid terrazzo at 3,000+ PSI — Models 100, 200, 300, 350, 400, 500. Heritage strength.',
     image: '/images/bases/terrazzo/jpg/florestone-model-300-6032-water-deco.jpg',
-    badge: 'Terrazzo',
   },
   {
     href: '/barrier-free',
@@ -53,8 +42,6 @@ const categories = [
     title: 'ADA-Compliant Units',
     body: 'Curbless, roll-in and transfer configurations in terrazzo, fiberglass and AcrylX™.',
     image: '/images/ada/3562h/3562h-ada-deco.jpg',
-    badge: 'ADA Leader',
-    highlight: true,
   },
   {
     href: '/products',
@@ -62,60 +49,21 @@ const categories = [
     title: 'Wall Surrounds',
     body: 'Smooth and textured wall panels to complete your shower installation.',
     image: '/images/shower-walls/3060-walls/6030rtmbase-3060walls-deco.jpg',
-    badge: 'F Series',
   },
   {
     href: '/products',
-    label: 'Utility & Mop Sinks',
+    label: 'Mop Sinks',
     title: 'Terrazzo Mop Sinks',
     body: 'Commercial-grade terrazzo mop and utility sinks for schools, hospitals, and hospitality.',
     image: '/images/sinks/wm20/3648terrazo-sr17-wm20-deco.jpg',
-    badge: 'Commercial',
   },
 ];
 
-const whyCards = [
-  {
-    num: '01',
-    title: 'Made in the USA',
-    body: 'Manufactured in Madera, California and Denison, Texas. Dual-coast production serves all 50 states and Canada with consistent quality and lead times.',
-  },
-  {
-    num: '02',
-    title: 'ADA Expertise',
-    body: 'An industry leader in developing barrier-free shower products — 16+ named ADA models across terrazzo, fiberglass and AcrylX™.',
-  },
-  {
-    num: '03',
-    title: 'Spec-Ready Documentation',
-    body: 'CAD files, spec sheet PDFs, installation guides, and pricing — everything the trade needs, ready to download.',
-  },
-  {
-    num: '04',
-    title: 'Nationwide Distribution',
-    body: 'Ships through Ferguson, Pacific Plumbing Supply, VAMAC, and hundreds of authorized plumbing wholesalers coast to coast.',
-  },
-];
-
-const galleryItems = [
-  {
-    image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg',
-    tag: 'Multifamily · Residential',
-    title: 'Apartments & Rentals',
-    sub: 'F Series 6042 · AcrylX™',
-  },
-  {
-    image: '/images/bases/terrazzo/jpg/florestone-model-400-6333-deco.jpg',
-    tag: 'Healthcare · ADA Barrier-Free',
-    title: 'Hospital & Rehab',
-    sub: 'T Series Model 400 · Roll-In',
-  },
-  {
-    image: '/images/multi-brand/jpeg/florestone-6032ts-3w-unit-deco.jpg',
-    tag: 'Hospitality · Commercial',
-    title: 'Hotels & Senior Living',
-    sub: 'F Series 6032TS · 3-Wall Unit',
-  },
+const stats = [
+  { num: '75+', label: 'Years Manufacturing' },
+  { num: '200+', label: 'Configurations' },
+  { num: '16+', label: 'ADA Models' },
+  { num: '2', label: 'US Plants' },
 ];
 
 export default function HomePage() {
@@ -127,89 +75,69 @@ export default function HomePage() {
       <Navbar activePage="/" />
 
       {/* ── HERO ── */}
-      <section className="flex flex-col lg:flex-row overflow-hidden min-h-[600px] lg:min-h-[700px]">
+      <section className="relative w-full overflow-hidden" style={{ height: 'min(90vh, 720px)', minHeight: '520px' }}>
+        {/* Background image */}
+        <Image
+          src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg"
+          alt="Florestone shower base installed in modern bathroom"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[var(--color-secondary)]/70" />
 
-        {/* Mobile-only photo banner */}
-        <div className="relative h-56 sm:h-64 lg:hidden w-full overflow-hidden">
-          <Image
-            src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg"
-            alt="Florestone shower base installed in modern bathroom"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-[var(--color-secondary)]/30" />
-        </div>
-
-        {/* Left: text panel */}
-        <div className="relative flex items-center bg-[var(--color-secondary)] w-full lg:w-[52%] px-8 sm:px-12 lg:px-16 xl:px-20 py-14 lg:py-24">
-          {/* Vertical teal accent line — desktop right edge */}
-          <div className="absolute inset-y-0 right-0 w-[3px] bg-[var(--color-primary)]/25 hidden lg:block" />
-
-          <div className="relative z-10 max-w-[480px] w-full">
-
-            {/* Eyebrow badge */}
-            <div
+        {/* Content */}
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+          <p
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary-light)] mb-5 opacity-90"
+          >
+            Made for the Trade
+          </p>
+          <h1
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="font-bold text-white text-[2.6rem] sm:text-[3.4rem] lg:text-[4.2rem] xl:text-[5rem] leading-[1.05] tracking-tight mb-5 max-w-[900px]"
+          >
+            Enduring Strength.
+            <br />
+            Classic Beauty.
+          </h1>
+          <p
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-white/70 text-[16px] sm:text-[18px] mb-8 font-light tracking-wide"
+          >
+            Family-built since 1947. Manufactured in the USA.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="/products"
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="inline-flex items-center gap-2 mb-7 px-3 py-1.5 border border-[var(--color-primary)]/40 rounded"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[var(--color-secondary)] font-semibold text-[14px] rounded hover:bg-white/90 transition-colors"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--color-primary)]">
-                Made for the Trade · Est. 1947
-              </span>
-            </div>
-
-            {/* H1 */}
-            <h1
+              Browse Products
+            </Link>
+            <Link
+              href="/find-a-dealer"
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="font-semibold text-white text-[2.6rem] sm:text-[3rem] lg:text-[3.6rem] xl:text-[4rem] leading-[1.06] tracking-tight mb-6"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/50 text-white font-semibold text-[14px] rounded hover:border-white hover:bg-white/10 transition-colors"
             >
-              Built for the
-              <br />
-              job&nbsp;site.
-              <br />
-              <span className="text-[var(--color-primary)]">Spec&rsquo;d to last.</span>
-            </h1>
+              Find a Dealer
+            </Link>
+          </div>
 
-            {/* Body */}
-            <p className="text-white/65 text-[15px] lg:text-[16px] leading-[1.8] mb-9 font-light">
-              Shower bases, ADA-compliant units, and complete bath solutions engineered in America for contractors, architects, and builders.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3 mb-12">
-              <Link
-                href="/find-a-dealer"
-                style={{ fontFamily: 'var(--font-heading)' }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded transition-colors"
-              >
-                Find a Dealer
-              </Link>
-              <Link
-                href="/products"
-                style={{ fontFamily: 'var(--font-heading)' }}
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/60 text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded hover:bg-white/8 transition-colors"
-              >
-                Browse Products
-              </Link>
-            </div>
-
-            {/* Stats row — anchored inside text panel */}
-            <div className="grid grid-cols-4 gap-0 border-t border-white/10 pt-8">
-              {[
-                { num: '75+', label: 'Years Mfg.' },
-                { num: '200+', label: 'Configs' },
-                { num: 'ADA', label: 'Certified' },
-                { num: 'USA', label: 'Made In' },
-              ].map((s, i) => (
-                <div key={s.label} className={`text-center ${i > 0 ? 'border-l border-white/10' : ''}`}>
+          {/* Stats row */}
+          <div className="absolute bottom-0 left-0 right-0 bg-[var(--color-secondary)]/80 backdrop-blur-sm border-t border-white/10">
+            <div className="max-w-[1280px] mx-auto px-6 lg:px-12 py-5 grid grid-cols-2 sm:grid-cols-4 gap-px">
+              {stats.map((s, i) => (
+                <div key={s.label} className={`text-center px-4 ${i > 0 ? 'border-l border-white/10' : ''}`}>
                   <span
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="block text-[22px] lg:text-[26px] font-semibold text-[var(--color-primary)] leading-none"
+                    className="block text-[24px] lg:text-[28px] font-bold text-white leading-none"
                   >
                     {s.num}
                   </span>
-                  <span className="block text-[9px] lg:text-[10px] text-white/40 tracking-wider uppercase mt-1.5 font-light">
+                  <span className="block text-[11px] text-white/45 tracking-wider uppercase mt-1">
                     {s.label}
                   </span>
                 </div>
@@ -217,32 +145,24 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Right: photo panel — desktop only */}
-        <div className="relative hidden lg:block lg:w-[48%] overflow-hidden">
-          <Image
-            src="/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg"
-            alt="Florestone shower base installed in modern bathroom"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          {/* Gradient blend from navy panel into photo */}
-          <div className="absolute inset-y-0 left-0 w-2/5 bg-gradient-to-r from-[var(--color-secondary)] via-[var(--color-secondary)]/40 to-transparent" />
-        </div>
-
       </section>
 
       {/* ── TRUST BAR ── */}
-      <div className="bg-white border-b border-[var(--color-line)]">
+      <div className="bg-[var(--color-offwhite)] border-b border-[var(--color-line)]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-12">
-          <div className="flex flex-wrap items-center justify-between gap-y-3 py-4">
-            {trustItems.map((item) => (
-              <div key={item.label} className="flex items-center gap-2 px-4">
-                <span className="text-[15px]">{item.icon}</span>
+          <div className="flex flex-wrap items-center justify-around gap-y-3 py-4">
+            {[
+              { icon: '🇺🇸', label: 'Made in the USA' },
+              { icon: '♿', label: 'ADA & ANSI A117.1' },
+              { icon: '📋', label: 'IAPMO File 0687' },
+              { icon: '📐', label: 'CAD & Spec Sheets' },
+              { icon: '🏪', label: 'Nationwide Dealers' },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2 px-3">
+                <span className="text-[14px]">{item.icon}</span>
                 <span
                   style={{ fontFamily: 'var(--font-heading)' }}
-                  className="text-[11px] font-medium tracking-[0.08em] uppercase text-[var(--color-text-muted)]"
+                  className="text-[11px] font-medium tracking-[0.06em] text-[var(--color-text-muted)]"
                 >
                   {item.label}
                 </span>
@@ -253,45 +173,38 @@ export default function HomePage() {
       </div>
 
       {/* ── PRODUCT CATEGORIES ── */}
-      <section className="bg-[var(--color-offwhite)] py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-[1280px] mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="max-w-lg">
-              <p
-                style={{ fontFamily: 'var(--font-heading)' }}
-                className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
-              >
-                The Florestone Catalog
-              </p>
+
+          {/* Section header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+            <div>
               <h2
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight mb-3"
+                className="font-bold text-[var(--color-secondary)] text-[2rem] md:text-[2.4rem] leading-tight tracking-tight"
               >
-                Every project, covered.
+                Our Products
               </h2>
-              <p className="text-[var(--color-text-muted)] text-[15px] leading-relaxed font-light">
-                Shower bases in three materials, full bath configurations, ADA barrier-free, shower walls, and the commercial terrazzo mop-sink line.
+              <p className="text-[var(--color-text-muted)] text-[15px] mt-2 font-normal">
+                Shower bases in three materials, full bath configurations, ADA barrier-free, and more.
               </p>
             </div>
             <Link
               href="/products"
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-secondary)] hover:bg-[var(--color-secondary-dark)] text-white font-semibold text-[12px] tracking-[0.06em] uppercase rounded transition-colors self-start whitespace-nowrap"
+              className="inline-flex items-center gap-2 text-[13px] font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors whitespace-nowrap self-start sm:self-auto"
             >
-              View All Products →
+              View All →
             </Link>
           </div>
 
+          {/* Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((cat) => (
               <Link
                 key={cat.title}
                 href={cat.href}
-                className={`group bg-white rounded-lg overflow-hidden border transition-all hover:-translate-y-1 hover:shadow-xl ${
-                  cat.highlight
-                    ? 'border-[var(--color-primary)]/30'
-                    : 'border-[var(--color-line)]'
-                } hover:border-[var(--color-primary)]`}
+                className="group bg-white border border-[var(--color-line)] rounded overflow-hidden hover:border-[var(--color-secondary)] hover:shadow-lg transition-all duration-200"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-light)]">
@@ -299,44 +212,31 @@ export default function HomePage() {
                     src={cat.image}
                     alt={cat.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span
-                      style={{ fontFamily: 'var(--font-heading)' }}
-                      className="text-[9px] font-semibold tracking-[0.12em] uppercase bg-white/90 text-[var(--color-secondary)] px-2 py-1 rounded"
-                    >
-                      {cat.label}
-                    </span>
-                  </div>
-                  {cat.highlight && (
-                    <div className="absolute top-3 right-3 z-10">
-                      <span
-                        style={{ fontFamily: 'var(--font-heading)' }}
-                        className="text-[9px] font-semibold tracking-[0.12em] uppercase bg-[var(--color-primary)] text-white px-2 py-1 rounded"
-                      >
-                        ADA
-                      </span>
-                    </div>
-                  )}
                 </div>
                 {/* Body */}
-                <div className="p-5">
+                <div className="p-6">
+                  <p
+                    style={{ fontFamily: 'var(--font-heading)' }}
+                    className="text-[11px] font-semibold tracking-[0.1em] uppercase text-[var(--color-primary)] mb-1"
+                  >
+                    {cat.label}
+                  </p>
                   <h3
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="font-semibold text-[var(--color-secondary)] text-[17px] mb-2 leading-snug"
+                    className="font-bold text-[var(--color-secondary)] text-[17px] mb-2 leading-snug"
                   >
                     {cat.title}
                   </h3>
-                  <p className="text-[var(--color-text-muted)] text-[13px] leading-relaxed font-light mb-4">
+                  <p className="text-[var(--color-text-muted)] text-[13px] leading-relaxed mb-4">
                     {cat.body}
                   </p>
                   <span
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="inline-flex items-center gap-1 text-[12px] font-semibold tracking-[0.04em] text-[var(--color-primary)] group-hover:text-[var(--color-primary-dark)] transition-colors"
+                    className="inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors"
                   >
-                    View series →
+                    Browse →
                   </span>
                 </div>
               </Link>
@@ -345,109 +245,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY FLORESTONE ── */}
-      <section style={{ backgroundColor: 'var(--color-powder)' }} className="py-20 px-6">
+      {/* ── ABOUT STRIP ── */}
+      <section className="bg-[var(--color-secondary)] py-20 px-6">
         <div className="max-w-[1280px] mx-auto">
-          <div className="max-w-xl mb-12">
-            <p
-              style={{ fontFamily: 'var(--font-heading)' }}
-              className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
-            >
-              Why contractors spec Florestone
-            </p>
-            <h2
-              style={{ fontFamily: 'var(--font-heading)' }}
-              className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight"
-            >
-              Family-built since 1947.
-              <br />
-              Trade-grade every time.
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyCards.map((card) => (
-              <div
-                key={card.title}
-                className="bg-white rounded-lg p-7 border border-white hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all"
-              >
-                <div
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                  className="text-[11px] font-semibold tracking-[0.12em] text-[var(--color-primary)] mb-5"
-                >
-                  {card.num}
-                </div>
-                <h3
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                  className="font-semibold text-[var(--color-secondary)] text-[16px] mb-3 leading-snug"
-                >
-                  {card.title}
-                </h3>
-                <p className="text-[var(--color-text-muted)] text-[13px] leading-relaxed font-light">
-                  {card.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FIND A DEALER ── */}
-      <section style={{ backgroundColor: 'var(--color-secondary)' }} className="py-20 px-6">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
+                className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-4"
               >
-                Plumbing Trade Channel
+                Our Story
               </p>
               <h2
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="font-semibold text-white text-3xl md:text-4xl leading-tight tracking-tight mb-5"
+                className="font-bold text-white text-[2rem] md:text-[2.6rem] leading-tight tracking-tight mb-5"
               >
-                Florestone ships
+                Eight decades of
                 <br />
-                through your wholesaler.
+                American craftsmanship.
               </h2>
-              <p className="text-white/55 text-[15px] leading-relaxed font-light mb-8 max-w-md">
-                We&apos;re a B2B trade brand. Find your local Ferguson, Pacific Plumbing Supply, VAMAC, or other authorized Florestone wholesaler — or call our sales team direct.
+              <p className="text-white/60 text-[15px] leading-relaxed mb-8 max-w-md">
+                Founded in 1947 by Ray and Ann Flores, Florestone has been family-owned for three generations. We manufacture in Madera, California and Denison, Texas — building products that contractors trust job after job.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex gap-4 flex-wrap">
+                <Link
+                  href="/why-florestone"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="inline-flex items-center gap-2 px-7 py-3 bg-white text-[var(--color-secondary)] font-semibold text-[13px] rounded hover:bg-white/90 transition-colors"
+                >
+                  Our Story
+                </Link>
                 <Link
                   href="/find-a-dealer"
                   style={{ fontFamily: 'var(--font-heading)' }}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 text-white font-semibold text-[13px] rounded hover:border-white hover:bg-white/10 transition-colors"
                 >
                   Find a Dealer
                 </Link>
-                <a
-                  href="tel:8004462647"
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/25 hover:border-white/60 text-white/80 hover:text-white font-semibold text-[13px] tracking-[0.06em] uppercase rounded transition-colors"
-                >
-                  (800) 446-2647
-                </a>
               </div>
             </div>
 
-            {/* Stats panel */}
-            <div className="grid grid-cols-2 gap-px bg-white/10 rounded-lg overflow-hidden border border-white/10">
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-px bg-white/10 rounded overflow-hidden border border-white/10">
               {[
-                { num: '50', label: 'States + Canada' },
-                { num: '2', label: 'US Plants — CA + TX' },
                 { num: '1947', label: 'Family Founded' },
                 { num: '3', label: 'Generations' },
+                { num: '2', label: 'US Plants — CA + TX' },
+                { num: '50', label: 'States + Canada' },
               ].map((s) => (
-                <div key={s.label} className="bg-[var(--color-secondary-dark)] px-8 py-8">
+                <div key={s.label} className="bg-[var(--color-secondary-mid)] px-8 py-8">
                   <div
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="text-[40px] font-semibold text-white leading-none mb-2"
+                    className="text-[40px] font-bold text-white leading-none mb-2"
                   >
                     {s.num}
                   </div>
-                  <div className="text-[11px] text-white/40 tracking-wider uppercase font-light">
+                  <div className="text-[11px] text-white/45 tracking-wider uppercase">
                     {s.label}
                   </div>
                 </div>
@@ -457,51 +310,130 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── WHY FLORESTONE ── */}
+      <section className="bg-[var(--color-offwhite)] py-20 px-6">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="max-w-xl mb-12">
+            <h2
+              style={{ fontFamily: 'var(--font-heading)' }}
+              className="font-bold text-[var(--color-secondary)] text-[2rem] md:text-[2.4rem] leading-tight tracking-tight"
+            >
+              Why contractors spec Florestone
+            </h2>
+            <p className="text-[var(--color-text-muted)] text-[15px] mt-3">
+              Trade-grade quality, spec-ready documentation, and the nationwide distribution network you need.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                num: '01',
+                title: 'Made in the USA',
+                body: 'Manufactured in Madera, California and Denison, Texas. Dual-coast production serves all 50 states and Canada.',
+              },
+              {
+                num: '02',
+                title: 'ADA Expertise',
+                body: 'An industry leader in barrier-free shower products — 16+ named ADA models across terrazzo, fiberglass and AcrylX™.',
+              },
+              {
+                num: '03',
+                title: 'Spec-Ready Docs',
+                body: 'CAD files, spec sheet PDFs, installation guides, and pricing — everything the trade needs, ready to download.',
+              },
+              {
+                num: '04',
+                title: 'Nationwide Distribution',
+                body: 'Ships through Ferguson, Pacific Plumbing Supply, VAMAC, and hundreds of authorized wholesalers coast to coast.',
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className="bg-white rounded p-7 border border-[var(--color-line)] hover:border-[var(--color-secondary)] hover:shadow-md transition-all"
+              >
+                <div
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="text-[11px] font-bold tracking-[0.12em] text-[var(--color-primary)] mb-5"
+                >
+                  {card.num}
+                </div>
+                <h3
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                  className="font-bold text-[var(--color-secondary)] text-[16px] mb-3 leading-snug"
+                >
+                  {card.title}
+                </h3>
+                <p className="text-[var(--color-text-muted)] text-[13px] leading-relaxed">
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── PROJECT GALLERY ── */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-[1280px] mx-auto">
           <div className="mb-10">
-            <p
-              style={{ fontFamily: 'var(--font-heading)' }}
-              className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
-            >
-              Florestone in the Field
-            </p>
             <h2
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight"
+              className="font-bold text-[var(--color-secondary)] text-[2rem] md:text-[2.4rem] leading-tight tracking-tight"
             >
-              Where we get spec'd.
+              Where we get spec&rsquo;d
             </h2>
+            <p className="text-[var(--color-text-muted)] text-[15px] mt-2">
+              Florestone in multifamily, healthcare, hospitality, and commercial projects.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
-            {galleryItems.map((item) => (
+            {[
+              {
+                image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-6042f-wht-deco.jpg',
+                tag: 'Multifamily · Residential',
+                title: 'Apartments & Rentals',
+                sub: 'F Series 6042 · AcrylX™',
+              },
+              {
+                image: '/images/bases/terrazzo/jpg/florestone-model-400-6333-deco.jpg',
+                tag: 'Healthcare · ADA Barrier-Free',
+                title: 'Hospital & Rehab',
+                sub: 'T Series Model 400 · Roll-In',
+              },
+              {
+                image: '/images/multi-brand/jpeg/florestone-6032ts-3w-unit-deco.jpg',
+                tag: 'Hospitality · Commercial',
+                title: 'Hotels & Senior Living',
+                sub: 'F Series 6032TS · 3-Wall Unit',
+              },
+            ].map((item) => (
               <div
                 key={item.title}
-                className="relative rounded-lg overflow-hidden aspect-[4/5] group cursor-pointer"
+                className="relative rounded overflow-hidden aspect-[4/5] group cursor-pointer"
               >
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover group-hover:scale-[1.04] transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-secondary)]/90 via-[var(--color-secondary)]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                   <p
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--color-primary)] mb-2"
+                    className="text-[10px] font-semibold tracking-[0.14em] uppercase text-[var(--color-primary-light)] mb-2 opacity-80"
                   >
                     {item.tag}
                   </p>
                   <h3
                     style={{ fontFamily: 'var(--font-heading)' }}
-                    className="font-semibold text-[22px] leading-tight mb-1"
+                    className="font-bold text-[22px] leading-tight mb-1"
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/60 font-light">{item.sub}</p>
+                  <p className="text-sm text-white/55">{item.sub}</p>
                 </div>
               </div>
             ))}
@@ -510,21 +442,18 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ backgroundColor: 'var(--color-offwhite)' }} className="py-20 px-6">
+      <section className="bg-[var(--color-offwhite)] py-20 px-6">
         <div className="max-w-[860px] mx-auto">
-          <div className="text-center mb-12">
-            <p
-              style={{ fontFamily: 'var(--font-heading)' }}
-              className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[var(--color-primary)] mb-3"
-            >
-              FAQ
-            </p>
+          <div className="mb-12">
             <h2
               style={{ fontFamily: 'var(--font-heading)' }}
-              className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight"
+              className="font-bold text-[var(--color-secondary)] text-[2rem] md:text-[2.4rem] leading-tight tracking-tight"
             >
               Specifying Florestone, answered.
             </h2>
+            <p className="text-[var(--color-text-muted)] text-[15px] mt-3">
+              Common questions from architects, contractors, and specifiers.
+            </p>
           </div>
           <FAQAccordion items={HOME_FAQS} />
         </div>

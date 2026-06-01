@@ -1,36 +1,32 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Primary brand teal */
-  --color-primary: #65ABC1;
-  --color-primary-dark: #4D8FA3;
-  --color-primary-light: #EBF5F8;
+  /* Primary accent — refined dark teal */
+  --color-primary: #1a6e82;
+  --color-primary-dark: #124f5e;
+  --color-primary-light: #e8f4f7;
 
-  /* Secondary navy */
-  --color-secondary: #234C5A;
-  --color-secondary-dark: #1A3A45;
-  --color-secondary-mid: #2E6070;
+  /* Secondary — near-black (replaces navy) */
+  --color-secondary: #111827;
+  --color-secondary-dark: #0a0f1a;
+  --color-secondary-mid: #1f2d3d;
 
-  /* Accent coral */
-  --color-coral: #C66D61;
-  --color-coral-light: #F7EDEB;
-
-  /* Powder blue-gray */
-  --color-powder: #DDE4EC;
-  --color-powder-dark: #C8D2DE;
+  /* Powder — neutral light gray */
+  --color-powder: #f3f4f6;
+  --color-powder-dark: #e5e7eb;
 
   /* Neutrals */
   --color-white: #FFFFFF;
-  --color-offwhite: #F8FAFB;
-  --color-light: #F2F6F8;
-  --color-text: #1A2F3A;
-  --color-text-muted: #4A6572;
-  --color-text-light: #7A95A2;
-  --color-line: rgba(35, 76, 90, 0.12);
+  --color-offwhite: #f9fafb;
+  --color-light: #f3f4f6;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+  --color-line: #e5e7eb;
 
-  /* Fonts */
-  --font-heading: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
-  --font-body: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
+  /* Fonts — DM Sans (loaded in layout.tsx) */
+  --font-heading: var(--font-dm-sans), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 * {
@@ -46,7 +42,7 @@ body {
   background-color: var(--color-white);
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @keyframes fadeUp {
