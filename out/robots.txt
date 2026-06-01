@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+Host: https://www.florestone.com
+Sitemap: https://www.florestone.com/sitemap.xml
