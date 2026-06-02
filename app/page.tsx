@@ -93,21 +93,23 @@ export default function HomePage() {
             style={{ fontFamily: 'var(--font-heading)' }}
             className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary-light)] mb-5 opacity-90"
           >
-            Made for the Trade · Est. 1947
+            Family-Built in America · Est. 1947
           </p>
           <h1
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="font-bold text-white text-[2.6rem] sm:text-[3.4rem] lg:text-[4.2rem] xl:text-[5rem] leading-[1.05] tracking-tight mb-5 max-w-[900px]"
+            className="font-bold text-white text-[2.4rem] sm:text-[3.2rem] lg:text-[4rem] xl:text-[4.6rem] leading-[1.08] tracking-tight mb-5 max-w-[860px]"
           >
-            Built for the job&nbsp;site.
+            When your name is
             <br />
-            Spec&rsquo;d to last.
+            the product, quality
+            <br />
+            <span className="text-[var(--color-primary-light)]">isn&rsquo;t optional.</span>
           </h1>
           <p
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-white/70 text-[16px] sm:text-[18px] mb-8 font-light tracking-wide max-w-[560px]"
+            className="text-white/70 text-[15px] sm:text-[17px] mb-8 font-light tracking-wide max-w-[560px]"
           >
-            Shower bases, ADA units, and complete bath solutions engineered in America for contractors, architects, and builders.
+            The Flores family has put their name on every shower base, ADA unit, and terrazzo product since 1947 — manufactured in Madera, CA and Denison, TX.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -260,12 +262,12 @@ export default function HomePage() {
                 style={{ fontFamily: 'var(--font-heading)' }}
                 className="font-bold text-white text-[2rem] md:text-[2.6rem] leading-tight tracking-tight mb-5"
               >
-                Eight decades of
+                The Flores family name
                 <br />
-                American craftsmanship.
+                is on every unit.
               </h2>
               <p className="text-white/60 text-[15px] leading-relaxed mb-8 max-w-md">
-                Founded in 1947 by Ray and Ann Flores, Florestone has been family-owned for three generations. We manufacture in Madera, California and Denison, Texas — building products that contractors trust job after job.
+                Ray and Ann Flores started with cement laundry trays in Oakland in 1947. By 1965, Florestone pioneered compression-molded shower receptors that became the American construction standard. Three generations later, Ron and Carol Flores still run the company — and still put their family name on everything they make.
               </p>
               <div className="flex gap-4 flex-wrap">
                 <Link
