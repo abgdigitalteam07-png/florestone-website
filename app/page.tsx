@@ -89,27 +89,20 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
-          <p
-            style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary-light)] mb-5 opacity-90"
-          >
-            Family-Built in America · Est. 1947
-          </p>
           <h1
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="font-bold text-white text-[2.4rem] sm:text-[3.2rem] lg:text-[4rem] xl:text-[4.6rem] leading-[1.08] tracking-tight mb-5 max-w-[860px]"
+            className="font-semibold text-white text-[2.6rem] sm:text-[3.4rem] lg:text-[4.2rem] leading-[1.1] tracking-tight mb-5 max-w-[820px]"
           >
-            When your name is
+            Enduring Strength.{' '}
+            <span className="text-[var(--color-primary)]">Family Craft.</span>
             <br />
-            the product, quality
-            <br />
-            <span className="text-[var(--color-primary-light)]">isn&rsquo;t optional.</span>
+            Since 1947.
           </h1>
           <p
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-white/70 text-[15px] sm:text-[17px] mb-8 font-light tracking-wide max-w-[560px]"
+            className="text-white/65 text-[16px] sm:text-[17px] mb-8 font-light leading-relaxed max-w-[520px]"
           >
-            The Flores family has put their name on every shower base, ADA unit, and terrazzo product since 1947 — manufactured in Madera, CA and Denison, TX.
+            For over 75 years, the Flores family has built shower bases, ADA units, and terrazzo products that contractors trust — American-made in Madera, CA and Denison, TX.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
