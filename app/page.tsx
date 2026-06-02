@@ -89,20 +89,25 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
+          <p
+            style={{ fontFamily: 'var(--font-heading)' }}
+            className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-primary)] mb-5 opacity-90"
+          >
+            Made in California &amp; Texas · Est. 1947
+          </p>
           <h1
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="font-semibold text-white text-[2.6rem] sm:text-[3.4rem] lg:text-[4.2rem] leading-[1.1] tracking-tight mb-5 max-w-[820px]"
+            className="font-semibold text-white text-[2.6rem] sm:text-[3.2rem] lg:text-[4rem] leading-[1.1] tracking-tight mb-5 max-w-[820px]"
           >
-            Enduring Strength.{' '}
-            <span className="text-[var(--color-primary)]">Family Craft.</span>
+            The builders came first.
             <br />
-            Since 1947.
+            <span className="text-[var(--color-primary)]">The standard followed.</span>
           </h1>
           <p
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-white/65 text-[16px] sm:text-[17px] mb-8 font-light leading-relaxed max-w-[520px]"
+            className="text-white/65 text-[16px] sm:text-[17px] mb-8 font-light leading-relaxed max-w-[540px]"
           >
-            For over 75 years, the Flores family has built shower bases, ADA units, and terrazzo products that contractors trust — American-made in Madera, CA and Denison, TX.
+            In 1965, Florestone pioneered the compression-molded shower receptor. Within a generation, contractors across America were specifying it by default. Three generations of the same family still make it today — in Madera, CA and Denison, TX.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
