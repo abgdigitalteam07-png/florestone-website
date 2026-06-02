@@ -18,18 +18,19 @@ export default function Navbar({ activePage }: { activePage?: string }) {
       <div className="max-w-[1280px] mx-auto px-6 lg:px-12 flex items-center justify-between h-[68px]">
 
         {/* Logo */}
-        <Link href="/" className="shrink-0 flex flex-col leading-none">
+        <Link href="/" className="shrink-0 flex flex-col leading-none group">
           <span
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-[20px] font-bold tracking-[0.02em] text-[var(--color-secondary)] leading-none"
+            className="text-[22px] tracking-[0.04em] leading-none"
           >
-            FLORESTONE
+            <span className="font-light text-[var(--color-primary)]">FLORE</span>
+            <span className="font-semibold text-[var(--color-secondary)]">STONE</span>
           </span>
           <span
             style={{ fontFamily: 'var(--font-heading)' }}
-            className="text-[9px] font-medium tracking-[0.18em] text-[var(--color-text-muted)] mt-0.5 uppercase"
+            className="text-[8px] font-semibold tracking-[0.22em] text-[var(--color-text-light)] mt-0.5"
           >
-            Made for the Trade · Est. 1947
+            MADE FOR THE TRADE
           </span>
         </Link>
 

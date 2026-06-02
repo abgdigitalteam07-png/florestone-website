@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Primary accent — refined dark teal */
-  --color-primary: #1a6e82;
-  --color-primary-dark: #124f5e;
-  --color-primary-light: #e8f4f7;
+  /* Primary brand teal — original Florestone */
+  --color-primary: #65ABC1;
+  --color-primary-dark: #4D8FA3;
+  --color-primary-light: #EBF5F8;
 
-  /* Secondary — near-black (replaces navy) */
-  --color-secondary: #111827;
-  --color-secondary-dark: #0a0f1a;
-  --color-secondary-mid: #1f2d3d;
+  /* Secondary navy — original Florestone */
+  --color-secondary: #234C5A;
+  --color-secondary-dark: #1A3A45;
+  --color-secondary-mid: #2E6070;
 
-  /* Powder — neutral light gray */
-  --color-powder: #f3f4f6;
-  --color-powder-dark: #e5e7eb;
+  /* Powder blue-gray */
+  --color-powder: #DDE4EC;
+  --color-powder-dark: #C8D2DE;
 
   /* Neutrals */
   --color-white: #FFFFFF;
-  --color-offwhite: #f9fafb;
-  --color-light: #f3f4f6;
-  --color-text: #111827;
-  --color-text-muted: #6b7280;
-  --color-text-light: #9ca3af;
-  --color-line: #e5e7eb;
+  --color-offwhite: #F8FAFB;
+  --color-light: #F2F6F8;
+  --color-text: #1A2F3A;
+  --color-text-muted: #4A6572;
+  --color-text-light: #7A95A2;
+  --color-line: rgba(35, 76, 90, 0.12);
 
   /* Fonts — DM Sans (loaded in layout.tsx) */
   --font-heading: var(--font-dm-sans), system-ui, sans-serif;

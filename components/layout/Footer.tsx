@@ -11,15 +11,16 @@ export default function Footer() {
             <div className="flex flex-col leading-none mb-5">
               <span
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="text-[20px] font-bold tracking-[0.02em] text-white"
+                className="text-[20px] tracking-[0.04em]"
               >
-                FLORESTONE
+                <span className="font-light text-[var(--color-primary)]">FLORE</span>
+                <span className="font-semibold text-white">STONE</span>
               </span>
               <span
                 style={{ fontFamily: 'var(--font-heading)' }}
-                className="text-[9px] font-medium tracking-[0.18em] text-white/40 mt-1 uppercase"
+                className="text-[8px] font-semibold tracking-[0.22em] text-white/40 mt-1"
               >
-                Made for the Trade · Est. 1947
+                MADE FOR THE TRADE
               </span>
             </div>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs mb-4">
