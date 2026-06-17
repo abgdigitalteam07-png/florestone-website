@@ -47,8 +47,8 @@ function ProductCard({ product }: { product: Product }) {
           <Link href="/resources" style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded border border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors">
             CAD
           </Link>
-          <Link href={`/products#${product.id}`} style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded border border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-secondary)] hover:text-[var(--color-secondary)] transition-colors">
-            View
+          <Link href={`/products/${product.id}`} style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-dark)] transition-colors">
+            Details
           </Link>
         </div>
       </div>
