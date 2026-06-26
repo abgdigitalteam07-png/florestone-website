@@ -3,11 +3,11 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { JsonLd, breadcrumbSchema } from '@/components/seo/JsonLd';
-import { ALL_PRODUCTS, getProductById, getProductDetail } from '../products-data';
+import { SYNCED_PRODUCTS, getProductById, getProductDetail } from '../products-data';
 import ProductDetailClient from './ProductDetailClient';
 
 export async function generateStaticParams() {
-  return ALL_PRODUCTS.map(p => ({ id: p.id }));
+  return SYNCED_PRODUCTS.map(p => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

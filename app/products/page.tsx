@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import CTABand from '@/components/shared/CTABand';
 import { JsonLd, breadcrumbSchema } from '@/components/seo/JsonLd';
 import ProductCatalogClient from './ProductCatalogClient';
-import { ALL_PRODUCTS } from './products-data';
+import { SYNCED_PRODUCTS } from './products-data';
 
 export const metadata: Metadata = {
   title: 'The Florestone Catalog — Shower Bases, ADA Units, Mop Sinks & Utility Fixtures',
@@ -31,8 +31,8 @@ const ITEM_LIST_SCHEMA = {
   name: 'Florestone Product Catalog',
   description: 'Complete catalog of Florestone shower bases, ADA-compliant units, terrazzo mop sinks and utility fixtures manufactured in the USA.',
   url: 'https://www.florestone.com/products',
-  numberOfItems: ALL_PRODUCTS.length,
-  itemListElement: ALL_PRODUCTS.map((p, i) => ({
+  numberOfItems: SYNCED_PRODUCTS.length,
+  itemListElement: SYNCED_PRODUCTS.map((p, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: p.name,

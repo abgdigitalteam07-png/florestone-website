@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp -r out build",
+    "build": "npm run sync:salsify && next build && cp -r out build",
     "start": "serve build -l 8001 -s",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:salsify": "node scripts/sync-salsify.mjs"
   },
   "dependencies": {
     "next": "16.2.6",

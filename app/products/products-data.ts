@@ -371,8 +371,90 @@ export const ALL_PRODUCTS: Product[] = [
   { id: 'WALLS-3060', name: 'Shower Wall Surround 30×60', series: 'F Series', category: 'Shower Walls', size: '30×60', type: 'Wall panels', image: '/images/shower-walls/3060-walls/6030rtmbase-3060walls-deco.jpg' },
 ];
 
-export const ALL_SERIES = ['S Series', 'F Series', 'T Series', 'Terrazzo'];
-export const ALL_CATEGORIES = ['Shower Bases', 'Shower Stalls', 'Shower Walls', 'Barrier-Free', 'Mop Sinks'];
+// ─── Salsify-synced catalog ──────────────────────────────────────────────────
+// Florestone catalog is sourced from Salsify by scripts/sync-salsify.mjs.
+// The hardcoded ALL_PRODUCTS above is no longer used by the catalog page;
+// it's kept only so detail-page defaults (getProductDetail) still resolve
+// for any hand-curated marketing pages that import it.
+
+import { SALSIFY_PRODUCTS, SALSIFY_CATEGORIES, type SalsifyProduct } from './salsify-catalog.generated';
+
+export const SYNCED_PRODUCTS: Product[] = SALSIFY_PRODUCTS;
+
+// Series filter order matches the deployed florestone-main.emergent.host catalog:
+// S Series (Saflor®), F Series (RTM/AcrylX™), T Series (cast terrazzo bases), Terrazzo (mop sinks).
+const SERIES_ORDER = ['S Series', 'F Series', 'T Series', 'Terrazzo'];
+const presentSeries = new Set(SYNCED_PRODUCTS.map((p) => p.series).filter(Boolean));
+export const ALL_SERIES: string[] = SERIES_ORDER.filter((s) => presentSeries.has(s));
+
+// ─── Product Family aggregation ──────────────────────────────────────────────
+// Family-card grid is the primary catalog view. Each Family groups all
+// SKUs with the same Salsify Family value (Base/Parent/Product Name).
+
+export type ProductFamily = {
+  slug: string;
+  name: string;          // family display name (e.g., "Terrazzo")
+  category: string;      // dominant category among variants
+  series: string;        // dominant series among variants
+  count: number;         // number of size variants
+  sizeRange: string;     // "30×30 to 60×72" or "Multiple sizes"
+  image: string;         // hero image (best of variant images)
+  ada: boolean;          // true if any variant is ADA
+  variants: SalsifyProduct[];
+};
+
+const familySlug = (raw: string) =>
+  raw.toLowerCase().replace(/['"]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+function buildFamilies(products: SalsifyProduct[]): ProductFamily[] {
+  const groups = new Map<string, SalsifyProduct[]>();
+  for (const p of products) {
+    const key = (p.family || p.category || 'Other');
+    const list = groups.get(key) ?? [];
+    list.push(p);
+    groups.set(key, list);
+  }
+  const mode = <T,>(arr: T[]): T => {
+    const c = new Map<T, number>();
+    for (const v of arr) c.set(v, (c.get(v) ?? 0) + 1);
+    return [...c.entries()].sort((a, b) => b[1] - a[1])[0][0];
+  };
+  const families: ProductFamily[] = [];
+  for (const [name, variants] of groups) {
+    const lengths = variants.map((v) => parseFloat(v.productLengthIn ?? '')).filter(Number.isFinite);
+    const widths = variants.map((v) => parseFloat(v.productWidthIn ?? '')).filter(Number.isFinite);
+    let sizeRange = 'Multiple sizes';
+    if (lengths.length && widths.length) {
+      const minL = Math.min(...lengths), maxL = Math.max(...lengths);
+      const minW = Math.min(...widths), maxW = Math.max(...widths);
+      sizeRange = minL === maxL && minW === maxW ? `${minL}×${minW}` : `${minL}×${minW} to ${maxL}×${maxW}`;
+    }
+    families.push({
+      slug: familySlug(name),
+      name,
+      category: mode(variants.map((v) => v.category)),
+      series: mode(variants.map((v) => v.series)),
+      count: variants.length,
+      sizeRange,
+      image: variants.find((v) => v.image && !v.image.includes('placeholder'))?.image ?? variants[0].image,
+      ada: variants.some((v) => v.ada),
+      variants,
+    });
+  }
+  // Sort: larger families first, then alphabetically.
+  return families.sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+}
+
+export const ALL_FAMILIES_DATA: ProductFamily[] = buildFamilies(SYNCED_PRODUCTS as SalsifyProduct[]);
+
+// Legacy string list (still used by old filter sidebar — keep until refactor done).
+export const ALL_FAMILIES: string[] = ALL_FAMILIES_DATA.map((f) => f.name);
+
+export function getFamilyBySlug(slug: string): ProductFamily | undefined {
+  return ALL_FAMILIES_DATA.find((f) => f.slug === slug);
+}
+
+export const ALL_CATEGORIES: readonly string[] = SALSIFY_CATEGORIES;
 
 // ─── Detail helpers ─────────────────────────────────────────────────────────
 
@@ -405,7 +487,7 @@ function defaultDrainsFor(product: Product): DrainPosition[] {
 }
 
 export function getProductById(id: string): Product | undefined {
-  return ALL_PRODUCTS.find(p => p.id === id);
+  return SYNCED_PRODUCTS.find(p => p.id === id) ?? ALL_PRODUCTS.find(p => p.id === id);
 }
 
 export function getProductDetail(product: Product): ProductDetail {

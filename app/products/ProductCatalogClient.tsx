@@ -3,26 +3,26 @@
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ALL_PRODUCTS, ALL_SERIES, ALL_CATEGORIES, type Product } from './products-data';
+import { ALL_FAMILIES_DATA, ALL_SERIES, ALL_CATEGORIES, type ProductFamily } from './products-data';
 
-// ─── Product Card ─────────────────────────────────────────────────────────────
+// ─── Family Card ──────────────────────────────────────────────────────────────
 
-function ProductCard({ product }: { product: Product }) {
+function FamilyCard({ family }: { family: ProductFamily }) {
   return (
-    <div className="group bg-white rounded-lg border border-[var(--color-line)] overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
+    <Link href={`/products/family/${family.slug}`} className="group bg-white rounded-lg border border-[var(--color-line)] overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-200 block">
       <div className="relative aspect-[4/3] overflow-hidden bg-[var(--color-offwhite)]">
         <Image
-          src={product.image}
-          alt={product.name}
+          src={family.image}
+          alt={family.name}
           fill
           className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
         <div className="absolute top-3 left-3 z-10 flex gap-1.5">
           <span style={{ fontFamily: 'var(--font-heading)' }} className="text-[9px] font-semibold tracking-[0.1em] uppercase bg-[var(--color-secondary)] text-white px-2 py-1 rounded">
-            {product.series}
+            {family.series}
           </span>
-          {product.ada && (
+          {family.ada && (
             <span style={{ fontFamily: 'var(--font-heading)' }} className="text-[9px] font-semibold tracking-[0.1em] uppercase bg-[var(--color-primary)] text-white px-2 py-1 rounded">
               ADA
             </span>
@@ -31,28 +31,23 @@ function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="p-4 flex flex-col gap-3">
         <div>
-          <h3 style={{ fontFamily: 'var(--font-heading)' }} className="font-semibold text-[var(--color-secondary)] text-[14px] leading-snug mb-1">
-            {product.name}
+          <h3 style={{ fontFamily: 'var(--font-heading)' }} className="font-semibold text-[var(--color-secondary)] text-[15px] leading-snug mb-1">
+            {family.name}
           </h3>
-          <p className="text-[var(--color-text-muted)] text-[12px]">{product.type}</p>
+          <p className="text-[var(--color-text-muted)] text-[12px]">{family.category}</p>
           <div className="flex gap-1.5 mt-2 flex-wrap">
-            <span className="text-[10px] bg-[var(--color-light)] text-[var(--color-text-muted)] px-2 py-0.5 rounded font-medium">{product.size}</span>
-            {product.ada && <span className="text-[10px] bg-[var(--color-primary-light)] text-[var(--color-primary-dark)] px-2 py-0.5 rounded font-medium">ADA Compliant</span>}
+            <span className="text-[10px] bg-[var(--color-light)] text-[var(--color-text-muted)] px-2 py-0.5 rounded font-medium">
+              {family.count} {family.count === 1 ? 'size' : 'sizes'} · {family.sizeRange}
+            </span>
           </div>
         </div>
-        <div className="flex gap-2 pt-2 border-t border-[var(--color-line)] mt-auto">
-          <Link href="/resources" style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded border border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors">
-            PDF
-          </Link>
-          <Link href="/resources" style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded border border-[var(--color-line)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors">
-            CAD
-          </Link>
-          <Link href={`/products/${product.id}`} style={{ fontFamily: 'var(--font-heading)' }} className="flex-1 text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-dark)] transition-colors">
-            Details
-          </Link>
+        <div className="pt-2 border-t border-[var(--color-line)] mt-auto">
+          <span style={{ fontFamily: 'var(--font-heading)' }} className="block text-center text-[10px] font-semibold tracking-[0.08em] uppercase px-3 py-2 rounded bg-[var(--color-secondary)] text-white group-hover:bg-[var(--color-secondary-dark)] transition-colors">
+            View Family →
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -72,16 +67,22 @@ export default function ProductCatalogClient() {
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
-    return ALL_PRODUCTS.filter(p => {
-      if (q && ![p.name, p.series, p.type, p.size, p.id, p.category].join(' ').toLowerCase().includes(q)) return false;
-      if (selectedSeries.length && !selectedSeries.includes(p.series)) return false;
-      if (selectedCategories.length && !selectedCategories.includes(p.category)) return false;
-      if (adaOnly && !p.ada) return false;
+    return ALL_FAMILIES_DATA.filter(f => {
+      if (q) {
+        const hay = [f.name, f.series, f.category, f.sizeRange, ...f.variants.map(v => v.name)].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      // Match if ANY variant is in the selected category/series — families can
+      // span multiple categories (e.g., Fiberglass Smooth Wall covers both
+      // Shower Stalls and Shower Walls).
+      if (selectedCategories.length && !f.variants.some(v => selectedCategories.includes(v.category))) return false;
+      if (selectedSeries.length && !f.variants.some(v => selectedSeries.includes(v.series))) return false;
+      if (adaOnly && !f.ada) return false;
       return true;
     });
   }, [search, selectedSeries, selectedCategories, adaOnly]);
 
-  const hasFilters = search || selectedSeries.length || selectedCategories.length || adaOnly;
+  const hasFilters = !!(search || selectedSeries.length || selectedCategories.length || adaOnly);
 
   const clearAll = () => {
     setSearch('');
@@ -210,7 +211,8 @@ export default function ProductCatalogClient() {
             {/* Results count + active filters */}
             <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
               <p style={{ fontFamily: 'var(--font-heading)' }} className="text-[12px] text-[var(--color-text-muted)]">
-                <span className="font-semibold text-[var(--color-text)]">{filtered.length}</span> product{filtered.length !== 1 ? 's' : ''}
+                <span className="font-semibold text-[var(--color-text)]">{filtered.length}</span> {filtered.length === 1 ? 'family' : 'families'}
+                {' · '}{filtered.reduce((n, f) => n + f.count, 0)} total SKUs
                 {hasFilters ? ' matching filters' : ' in catalog'}
               </p>
               {/* Active filter chips */}
@@ -236,7 +238,7 @@ export default function ProductCatalogClient() {
             {/* Empty state */}
             {filtered.length === 0 && (
               <div className="text-center py-20">
-                <p style={{ fontFamily: 'var(--font-heading)' }} className="text-[var(--color-text-muted)] text-[15px] mb-3">No products match your search.</p>
+                <p style={{ fontFamily: 'var(--font-heading)' }} className="text-[var(--color-text-muted)] text-[15px] mb-3">No families match your search.</p>
                 <button onClick={clearAll} style={{ fontFamily: 'var(--font-heading)' }} className="text-[13px] font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline">
                   Clear all filters
                 </button>
@@ -245,8 +247,8 @@ export default function ProductCatalogClient() {
 
             {/* Grid */}
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-              {filtered.map(product => (
-                <ProductCard key={product.id} product={product} />
+              {filtered.map(family => (
+                <FamilyCard key={family.slug} family={family} />
               ))}
             </div>
           </div>
