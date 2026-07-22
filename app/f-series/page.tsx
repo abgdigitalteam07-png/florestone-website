@@ -5,7 +5,7 @@ import SeriesPage from '@/components/product/SeriesPage';
 export const metadata: Metadata = {
   title: SERIES['f-series'].metaTitle,
   description: SERIES['f-series'].metaDescription,
-  keywords: ['AcrylX shower base', 'RTM fiberglass shower', 'tub shower unit', 'F Series Florestone', '3-piece shower walls', '6032TS tub shower'],
+  keywords: ['AcrylX shower base', 'closed mold fiberglass shower', 'tub shower unit', 'F Series Florestone', '3-piece shower walls', '6032TS tub shower'],
   openGraph: {
     title: SERIES['f-series'].metaTitle,
     description: SERIES['f-series'].metaDescription,

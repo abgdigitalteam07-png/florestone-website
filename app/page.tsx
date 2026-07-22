@@ -18,15 +18,15 @@ const categories = [
   {
     href: '/s-series',
     label: 'S Series',
-    title: 'Saflor® Recess Bases',
+    title: 'S Series Recess Bases',
     body: 'Compression-molded recess shower receptors with Wedge-Lok® drain seal. The original since 1965.',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg',
   },
   {
     href: '/f-series',
     label: 'F Series',
-    title: 'RTM Fiberglass · AcrylX™',
-    body: 'RTM bases, stalls, 3-piece walls and 60-inch tub-shower units in durable AcrylX™.',
+    title: 'Closed Mold Fiberglass · AcrylX™',
+    body: 'Closed mold bases, stalls, 3-piece walls and 60-inch tub-shower units in durable AcrylX™.',
     image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-4242f-wht-deco.jpg',
   },
   {
@@ -260,12 +260,12 @@ export default function HomePage() {
                 style={{ fontFamily: 'var(--font-heading)' }}
                 className="font-bold text-white text-[2rem] md:text-[2.6rem] leading-tight tracking-tight mb-5"
               >
-                The Flores family name
+                75+ years.
                 <br />
-                is on every unit.
+                Still made in the USA.
               </h2>
               <p className="text-white/60 text-[15px] leading-relaxed mb-8 max-w-md">
-                Ray and Ann Flores started with cement laundry trays in Oakland in 1947. By 1965, Florestone pioneered compression-molded shower receptors that became the American construction standard. Three generations later, Ron and Carol Flores still run the company — and still put their family name on everything they make.
+                Florestone has manufactured trade-grade bath products in Madera, California and Denison, Texas since 1947. Compression-molded S Series, closed mold fiberglass F Series, and hand-poured terrazzo — each process refined over decades for the professional trade.
               </p>
               <div className="flex gap-4 flex-wrap">
                 <Link

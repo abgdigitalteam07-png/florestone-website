@@ -73,9 +73,9 @@ const COLOR = {
 } as const;
 
 export const ALL_PRODUCTS: Product[] = [
-  // ─── S Series (Saflor compression-molded) ─────────────────────────────
+  // ─── S Series (compression-molded) ────────────────────────────────────
   {
-    id: 'SR-3232', name: 'Saflor® Recess 32×32', series: 'S Series', category: 'Shower Bases', size: '32×32', type: 'Single-threshold recess',
+    id: 'SR-3232', name: 'S Series Recess 32×32', series: 'S Series', category: 'Shower Bases', size: '32×32', type: 'Single-threshold recess',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg',
     detail: {
       sku: 'FS-SR-3232', modelNumber: 'SR-3232',
@@ -91,11 +91,11 @@ export const ALL_PRODUCTS: Product[] = [
         '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg',
         '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot02-deco-w.jpg',
       ],
-      spec: { dimensions: '32" × 32"', height: '4.5"', weight: '38 lbs', capacity: '— gal', material: 'Saflor® Compression-Molded', installation: 'Single-Threshold Recess' },
+      spec: { dimensions: '32" × 32"', height: '4.5"', weight: '38 lbs', capacity: '— gal', material: 'Compression-Molded', installation: 'Single-Threshold Recess' },
     },
   },
   {
-    id: 'SR-3636', name: 'Saflor® Recess 36×36', series: 'S Series', category: 'Shower Bases', size: '36×36', type: 'Single-threshold recess',
+    id: 'SR-3636', name: 'S Series Recess 36×36', series: 'S Series', category: 'Shower Bases', size: '36×36', type: 'Single-threshold recess',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot02-deco-w.jpg',
     detail: {
       sku: 'FS-SR-3636', modelNumber: 'SR-3636',
@@ -109,12 +109,12 @@ export const ALL_PRODUCTS: Product[] = [
         { color: 'bone',  drain: 'right',  image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
         { color: 'biscuit', drain: 'left', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot02-deco-w.jpg' },
       ],
-      spec: { dimensions: '36" × 36"', height: '4.5"', weight: '44 lbs', capacity: '— gal', material: 'Saflor® Compression-Molded', installation: 'Single-Threshold Recess' },
+      spec: { dimensions: '36" × 36"', height: '4.5"', weight: '44 lbs', capacity: '— gal', material: 'Compression-Molded', installation: 'Single-Threshold Recess' },
     },
   },
-  { id: 'SR-3648', name: 'Saflor® Recess 36×48', series: 'S Series', category: 'Shower Bases', size: '36×48', type: 'Single-threshold recess', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
+  { id: 'SR-3648', name: 'S Series Recess 36×48', series: 'S Series', category: 'Shower Bases', size: '36×48', type: 'Single-threshold recess', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
   {
-    id: 'SR-3660', name: 'Saflor® Recess 36×60', series: 'S Series', category: 'Shower Bases', size: '36×60', type: 'Single-threshold recess',
+    id: 'SR-3660', name: 'S Series Recess 36×60', series: 'S Series', category: 'Shower Bases', size: '36×60', type: 'Single-threshold recess',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot02-deco-w.jpg',
     detail: {
       sku: 'FS-SR-3660', modelNumber: 'SR-3660',
@@ -134,10 +134,10 @@ export const ALL_PRODUCTS: Product[] = [
         '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg',
         '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot02-deco-w.jpg',
       ],
-      spec: { dimensions: '36" × 60"', height: '4.5"', weight: '62 lbs', capacity: '— gal', material: 'Saflor® Compression-Molded', installation: 'Single-Threshold Recess' },
+      spec: { dimensions: '36" × 60"', height: '4.5"', weight: '62 lbs', capacity: '— gal', material: 'Compression-Molded', installation: 'Single-Threshold Recess' },
       keyBenefits: [
         'Compression-molded marble composite — non-porous, won\'t crack or chip',
-        'Three-generation Saflor® formula manufactured in Madera, CA since 1965',
+        'Compression-molded formula manufactured in Denison, TX since 1965',
         'Pre-pitched 1/4" per foot to a reversible left/right drain',
       ],
       characteristics: ['Single-threshold recess', 'Reversible drain location', 'Slip-resistant texture', 'Non-yellowing finish'],
@@ -145,17 +145,17 @@ export const ALL_PRODUCTS: Product[] = [
         { label: 'Above-the-Floor Rough', value: 'No' },
         { label: 'Residential Warranty', value: 'Lifetime' },
         { label: 'Commercial Warranty', value: '1-Year' },
-        { label: 'Material', value: 'Saflor® Compression-Molded Composite' },
+        { label: 'Material', value: 'Compression-Molded Composite' },
         { label: 'Installation Type', value: 'Single-Threshold Recess' },
         { label: 'Shape', value: 'Rectangular' },
         { label: 'Pieces', value: '1' },
       ],
     },
   },
-  { id: 'SR-CORNER', name: 'Saflor® Corner Recess', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'Two-wall corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg' },
-  { id: 'SR-NEO', name: 'Saflor® NEO Angle', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'NEO angle corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
+  { id: 'SR-CORNER', name: 'S Series Corner Recess', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'Two-wall corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg' },
+  { id: 'SR-NEO', name: 'S Series NEO Angle', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'NEO angle corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
 
-  // ─── F Series (RTM AcrylX) ──────────────────────────────────────────
+  // ─── F Series (closed mold AcrylX) ─────────────────────────────────
   {
     id: 'F-3636', name: 'F Series 36×36 Base', series: 'F Series', category: 'Shower Bases', size: '36×36', type: 'Shower base',
     image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3260f-wht-deco.jpg',
@@ -168,7 +168,7 @@ export const ALL_PRODUCTS: Product[] = [
         { color: 'white', drain: 'left',   image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3260f-wht-zoom.jpg' },
         { color: 'white', drain: 'right',  image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3460f-wht-deco.jpg' },
       ],
-      spec: { dimensions: '36" × 36"', height: '5"', weight: '34 lbs', capacity: '— gal', material: 'RTM Fiberglass · AcrylX™', installation: 'Recess' },
+      spec: { dimensions: '36" × 36"', height: '5"', weight: '34 lbs', capacity: '— gal', material: 'Closed Mold Fiberglass · AcrylX™', installation: 'Recess' },
     },
   },
   {
@@ -190,7 +190,7 @@ export const ALL_PRODUCTS: Product[] = [
         '/images/bases/f-series/lifestyles/jpg/florestone-f-series-4242f-wht-swan-mt-ms-kai-pk-deco.jpg',
         '/images/bases/f-series/lifestyles/jpg/florestone-f-series-4242f-wht-swan-mt-wht-zoom.jpg',
       ],
-      spec: { dimensions: '42" × 42"', height: '5"', weight: '46 lbs', capacity: '— gal', material: 'RTM Fiberglass · AcrylX™', installation: 'Recess' },
+      spec: { dimensions: '42" × 42"', height: '5"', weight: '46 lbs', capacity: '— gal', material: 'Closed Mold Fiberglass · AcrylX™', installation: 'Recess' },
     },
   },
   { id: 'F-EDGE', name: 'F Series w/ The Edge™', series: 'F Series', category: 'Shower Bases', size: 'Multiple', type: 'Premium edge base', image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-4842f-wht-deco.jpg' },
@@ -294,7 +294,7 @@ export const ALL_PRODUCTS: Product[] = [
         '/images/ada/3562h/3562h-ada-deco.jpg',
         '/images/ada/3562h/3562h-ada-zoom.jpg',
       ],
-      spec: { dimensions: '40" × 40"', height: '< 1/2" threshold', weight: '52 lbs', capacity: '— gal', material: 'RTM Fiberglass · AcrylX™', installation: 'Curbless Barrier-Free' },
+      spec: { dimensions: '40" × 40"', height: '< 1/2" threshold', weight: '52 lbs', capacity: '— gal', material: 'Closed Mold Fiberglass · AcrylX™', installation: 'Curbless Barrier-Free' },
       keyBenefits: [
         'Curbless barrier-free design meets ADA & ANSI A117.1 transfer-shower requirements',
         'Pre-pitched to a recessed drain — no field slope required',
@@ -303,8 +303,8 @@ export const ALL_PRODUCTS: Product[] = [
       characteristics: ['ADA-compliant transfer entry', 'Reversible left/right drain', 'Integral nailing flange', 'Pre-leveled subfloor cavity'],
     },
   },
-  { id: 'F-BF', name: 'F Series AcrylX™ Barrier-Free', series: 'F Series', category: 'Barrier-Free', size: 'Multiple', type: 'RTM AcrylX curbless ADA', image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3060f-bf-lh-wht-deco.jpg', ada: true },
-  { id: 'SR-BF', name: 'Saflor® Barrier-Free', series: 'S Series', category: 'Barrier-Free', size: 'Multiple', type: 'Compression-molded BF ADA', image: '/images/ada/3562h/3562h-ada-deco.jpg', ada: true },
+  { id: 'F-BF', name: 'F Series AcrylX™ Barrier-Free', series: 'F Series', category: 'Barrier-Free', size: 'Multiple', type: 'Closed mold AcrylX curbless ADA', image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3060f-bf-lh-wht-deco.jpg', ada: true },
+  { id: 'SR-BF', name: 'S Series Barrier-Free', series: 'S Series', category: 'Barrier-Free', size: 'Multiple', type: 'Compression-molded BF ADA', image: '/images/ada/3562h/3562h-ada-deco.jpg', ada: true },
   { id: '3562H', name: 'Model 3562H ADA Roll-In', series: 'T Series', category: 'Barrier-Free', size: '35×62', type: 'Roll-In terrazzo ADA', image: '/images/ada/3562h/3562h-ada-deco.jpg', ada: true },
 
   // ─── Mop & Utility Sinks (no drain config — fixed drain) ────────────
@@ -382,7 +382,7 @@ import { SALSIFY_PRODUCTS, SALSIFY_CATEGORIES, type SalsifyProduct } from './sal
 export const SYNCED_PRODUCTS: Product[] = SALSIFY_PRODUCTS;
 
 // Series filter order matches the deployed florestone-main.emergent.host catalog:
-// S Series (Saflor®), F Series (RTM/AcrylX™), T Series (cast terrazzo bases), Terrazzo (mop sinks).
+// S Series (compression-molded), F Series (closed mold/AcrylX™), T Series (cast terrazzo bases), Terrazzo (mop sinks).
 const SERIES_ORDER = ['S Series', 'F Series', 'T Series', 'Terrazzo'];
 const presentSeries = new Set(SYNCED_PRODUCTS.map((p) => p.series).filter(Boolean));
 export const ALL_SERIES: string[] = SERIES_ORDER.filter((s) => presentSeries.has(s));
@@ -459,7 +459,7 @@ export const ALL_CATEGORIES: readonly string[] = SALSIFY_CATEGORIES;
 // ─── Detail helpers ─────────────────────────────────────────────────────────
 
 const DEFAULT_KEY_BENEFITS = [
-  'Manufactured in the USA since 1947 — three generations of family craft',
+  'Manufactured in the USA since 1947 — Madera, CA and Denison, TX',
   'Trade-spec quality: every unit ships through the plumbing wholesale channel',
   'Lifetime residential warranty backed by ABG, the largest US bath group',
 ];
@@ -468,8 +468,8 @@ const DEFAULT_CHARACTERISTICS = ['Slip-resistant textured floor', 'Pre-pitched t
 
 const materialForSeries = (series: string) =>
   series === 'T Series' ? 'Cast Terrazzo' :
-  series === 'S Series' ? 'Saflor® Compression-Molded' :
-  series === 'F Series' ? 'RTM Fiberglass · AcrylX™' : 'Terrazzo';
+  series === 'S Series' ? 'Compression-Molded' :
+  series === 'F Series' ? 'Closed Mold Fiberglass · AcrylX™' : 'Terrazzo';
 
 // Default availability when a product hasn't been hand-curated yet.
 // (Will be replaced by Salsify-derived values.)

@@ -10,7 +10,7 @@ import { SYNCED_PRODUCTS } from './products-data';
 export const metadata: Metadata = {
   title: 'The Florestone Catalog — Shower Bases, ADA Units, Mop Sinks & Utility Fixtures',
   description:
-    'Browse every Florestone product: Saflor® compression-molded recess bases (S Series), F Series RTM fiberglass with AcrylX™, T Series cast terrazzo, ADA barrier-free units, terrazzo mop sinks, and utility fixtures. USA-made since 1947. Spec sheets and CAD files available.',
+    'Browse every Florestone product: S Series compression-molded recess bases, F Series closed mold fiberglass with AcrylX™, T Series cast terrazzo, ADA barrier-free units, terrazzo mop sinks, and utility fixtures. USA-made since 1947. Spec sheets and CAD files available.',
   openGraph: {
     title: 'The Florestone Catalog — Shower Bases, ADA Units & Bath Fixtures',
     description:
@@ -63,7 +63,7 @@ export default function ProductsCatalogPage() {
             The Complete Florestone Catalog
           </h1>
           <p className="text-white/60 text-[16px] leading-relaxed max-w-2xl font-light">
-            Shower bases in three material platforms — Saflor® compression-molded, F Series RTM fiberglass with AcrylX™, and T Series solid terrazzo — plus the ADA barrier-free line, terrazzo mop sinks, and utility fixtures. Every product ships through the plumbing trade with a spec sheet and CAD file.
+            Shower bases in three material platforms — S Series compression-molded, F Series closed mold fiberglass with AcrylX™, and T Series solid terrazzo — plus the ADA barrier-free line, terrazzo mop sinks, and utility fixtures. Every product ships through the plumbing trade with a spec sheet and CAD file.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function ProductsCatalogPage() {
       <CTABand
         heading="Need a spec pulled?"
         body="Florestone is a B2B trade brand. Connect to your plumbing wholesaler or call (800) 446-2647 to reach our sales team in Madera, CA direct."
-        ctaLabel="Find a Wholesaler"
+        ctaLabel="Where to Buy"
         ctaHref="/find-a-dealer"
         secondaryLabel="Contact Sales"
         secondaryHref="/contact"
