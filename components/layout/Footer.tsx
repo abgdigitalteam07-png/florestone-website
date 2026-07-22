@@ -38,8 +38,8 @@ export default function Footer() {
               Products
             </h4>
             <ul className="space-y-2.5 text-sm text-white/55">
-              <li><Link href="/s-series" className="hover:text-white transition-colors">S Series · Saflor® Recess</Link></li>
-              <li><Link href="/f-series" className="hover:text-white transition-colors">F Series · AcrylX™ RTM</Link></li>
+              <li><Link href="/s-series" className="hover:text-white transition-colors">S Series · Compression-Molded</Link></li>
+              <li><Link href="/f-series" className="hover:text-white transition-colors">F Series · AcrylX™ Closed Mold</Link></li>
               <li><Link href="/t-series" className="hover:text-white transition-colors">T Series · Terrazzo</Link></li>
               <li><Link href="/barrier-free" className="hover:text-white transition-colors">ADA &amp; Barrier-Free</Link></li>
               <li><Link href="/products" className="hover:text-white transition-colors">Mop Sinks &amp; Utility</Link></li>

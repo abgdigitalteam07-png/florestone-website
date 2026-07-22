@@ -107,7 +107,7 @@ export default function HomePage() {
             style={{ fontFamily: 'var(--font-heading)' }}
             className="text-white/65 text-[16px] sm:text-[17px] mb-8 font-light leading-relaxed max-w-[540px]"
           >
-            In 1965, Florestone pioneered the compression-molded shower receptor. Within a generation, contractors across America were specifying it by default. Three generations of the same family still make it today — in Madera, CA and Denison, TX.
+            75+ years of American manufacturing. Compression-molded shower bases from Denison, TX. Closed mold fiberglass and terrazzo from Madera, CA. Two plants, one trade standard — built for contractors since 1947.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
