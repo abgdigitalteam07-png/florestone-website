@@ -50,19 +50,19 @@ export const SERIES: Record<SeriesKey, Series> = {
     key: 's-series',
     slug: 's-series',
     name: 'S Series',
-    subtitle: 'Saflor® Recess Shower Bases',
-    tagline: 'Florestone\'s registered recess line — stain-resistant, slip-resistant, off-white from the mold.',
-    label: 'S Series · Saflor® Recess',
-    badge: 'Saflor®',
+    subtitle: 'Compression-Molded Recess Shower Bases',
+    tagline: 'Florestone\'s compression-molded recess line — stain-resistant, slip-resistant, off-white from the mold.',
+    label: 'S Series · Compression-Molded',
+    badge: 'S Series',
     description:
-      'Single-threshold recess shower receptors with Wedge-Lok® integral drain seal. Stain, fungus and abrasion resistant — the registered Saflor® line.',
+      'Single-threshold recess shower receptors with Wedge-Lok® integral drain seal. Stain, fungus and abrasion resistant — the S Series compression-molded line.',
     heroBody:
-      'Saflor® is Florestone\'s registered name for our recess shower receptor line. Each one-piece base ships with our patented Wedge-Lok® integral drain seal, a slip-resistant floor that doesn\'t trap water, and an off-white finish that is stain, fungus and abrasion resistant. Specified into multifamily, hospitality and renovation projects through plumbing wholesalers nationwide.',
-    specChips: ['Saflor® Registered', 'Wedge-Lok® Drain', 'Stain & Fungus Resistant', 'Slip-Resistant', 'Off-White Std.', 'One-Piece Recess'],
+      'S Series is Florestone\'s compression-molded recess shower receptor line, manufactured at our Denison, TX plant. Each one-piece base ships with our patented Wedge-Lok® integral drain seal, a slip-resistant floor that doesn\'t trap water, and an off-white finish that is stain, fungus and abrasion resistant. Specified into multifamily, hospitality and renovation projects through plumbing wholesalers nationwide.',
+    specChips: ['Compression-Molded', 'Wedge-Lok® Drain', 'Stain & Fungus Resistant', 'Slip-Resistant', 'Off-White Std.', 'One-Piece Recess'],
     ada: false,
     hero: { swatch: '#EDE4D6', tint: 'sand' },
     specs: [
-      { label: 'Line', value: 'Saflor® — registered Florestone line' },
+      { label: 'Line', value: 'S Series — Florestone compression-molded line' },
       { label: 'Construction', value: 'Compression-molded composite' },
       { label: 'Install Type', value: 'Recessed (single threshold)' },
       { label: 'Drain', value: 'Wedge-Lok® integral seal' },
@@ -98,12 +98,12 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
     ],
     models: [
-      { code: 'SR-3232', name: 'Saflor® Recess 32×32', dimensions: '32 × 32', type: 'Single-threshold recess' },
-      { code: 'SR-3636', name: 'Saflor® Recess 36×36', dimensions: '36 × 36', type: 'Single-threshold recess' },
-      { code: 'SR-3648', name: 'Saflor® Recess 36×48', dimensions: '36 × 48', type: 'Single-threshold recess' },
-      { code: 'SR-3660', name: 'Saflor® Recess 36×60', dimensions: '36 × 60', type: 'Single-threshold recess' },
-      { code: 'SR-CORNER', name: 'Saflor® Corner Recess', dimensions: 'Multiple', type: 'Two-wall corner / Edge' },
-      { code: 'SR-NEO', name: 'Saflor® NEO Angle', dimensions: 'Multiple', type: 'NEO angle corner' },
+      { code: 'SR-3232', name: 'S Series Recess 32×32', dimensions: '32 × 32', type: 'Single-threshold recess' },
+      { code: 'SR-3636', name: 'S Series Recess 36×36', dimensions: '36 × 36', type: 'Single-threshold recess' },
+      { code: 'SR-3648', name: 'S Series Recess 36×48', dimensions: '36 × 48', type: 'Single-threshold recess' },
+      { code: 'SR-3660', name: 'S Series Recess 36×60', dimensions: '36 × 60', type: 'Single-threshold recess' },
+      { code: 'SR-CORNER', name: 'S Series Corner Recess', dimensions: 'Multiple', type: 'Two-wall corner / Edge' },
+      { code: 'SR-NEO', name: 'S Series NEO Angle', dimensions: 'Multiple', type: 'NEO angle corner' },
     ],
     faqs: [
       {
@@ -111,8 +111,8 @@ export const SERIES: Record<SeriesKey, Series> = {
         a: 'Wedge-Lok® is Florestone\'s patented integral drain seal. Instead of relying on a field-applied gasket, the drain is sealed into the base at the mold — eliminating one of the most common leak callbacks in shower-pan installs.',
       },
       {
-        q: 'What does "Saflor®" mean?',
-        a: 'Saflor® is the registered name for Florestone\'s recess shower receptor line. The name has shipped with our recess bases for over five decades — when you see Saflor®, you\'re looking at the original Florestone recess line, not a private-label copy.',
+        q: 'What does "S Series" mean?',
+        a: 'S Series is Florestone\'s compression-molded recess shower receptor line, manufactured at our Denison, TX plant. Compression molding gives these bases their trade-grade weight and durability — the manufacturing process Florestone pioneered in 1965.',
       },
       {
         q: 'What colors are available?',
@@ -120,28 +120,28 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
     ],
     compareWith: ['f-series', 't-series', 'barrier-free'],
-    metaTitle: 'S Series — Saflor® Recess Shower Bases | Florestone',
+    metaTitle: 'S Series — Compression-Molded Recess Shower Bases | Florestone',
     metaDescription:
-      'Florestone Saflor® S Series recess shower receptors with Wedge-Lok® integral drain seal. Stain, fungus and abrasion resistant. Compression-molded in the USA since 1965.',
+      'Florestone S Series compression-molded recess shower receptors with Wedge-Lok® integral drain seal. Stain, fungus and abrasion resistant. Compression-molded in the USA since 1965.',
   },
   'f-series': {
     key: 'f-series',
     slug: 'f-series',
     name: 'F Series',
-    subtitle: 'RTM Fiberglass w/ AcrylX™',
-    tagline: 'Resin Transfer Molded fiberglass shower bases, stalls and tub-showers with our proprietary AcrylX™ surface.',
-    label: 'F Series · RTM Fiberglass · AcrylX™',
+    subtitle: 'Closed Mold Fiberglass w/ AcrylX™',
+    tagline: 'Closed mold fiberglass shower bases, stalls and tub-showers with our proprietary AcrylX™ surface.',
+    label: 'F Series · Closed Mold Fiberglass · AcrylX™',
     badge: 'AcrylX™ Surface',
     description:
-      'Our RTM (Resin Transfer Molded) fiberglass platform — shower bases, one-piece stalls, tub-showers and 3-piece wall systems finished in our proprietary AcrylX™ applied acrylic.',
+      'Our closed mold fiberglass platform — shower bases, one-piece stalls, tub-showers and 3-piece wall systems finished in our proprietary AcrylX™ applied acrylic. Manufactured in Madera, CA.',
     heroBody:
-      'F Series is Florestone\'s RTM fiberglass platform. Resin Transfer Molded shells are laminated with our proprietary AcrylX™ applied acrylic and a composite reinforcement matrix — delivering a tough, repairable, color-matched surface in shower bases, one-piece stalls, tub-shower units (60×32/60×34/60×36/60×42) and three-piece wall systems for remodel work. The line where Florestone\'s 60+ years of plastics manufacturing meets modern installation realities.',
-    specChips: ['AcrylX™ Surface', 'RTM Fiberglass', 'Tub-Showers Available', '3-Piece Walls', 'Repairable', 'Edge Option'],
+      'F Series is Florestone\'s closed mold fiberglass platform, manufactured in Madera, CA. Fiberglass shells are laminated with our proprietary AcrylX™ applied acrylic and a composite reinforcement matrix — delivering a tough, repairable, color-matched surface in shower bases, one-piece stalls, tub-shower units (60×32/60×34/60×36/60×42) and three-piece wall systems for remodel work. The line where Florestone\'s 60+ years of plastics manufacturing meets modern installation realities.',
+    specChips: ['AcrylX™ Surface', 'Closed Mold Fiberglass', 'Tub-Showers Available', '3-Piece Walls', 'Repairable', 'Edge Option'],
     ada: false,
     hero: { swatch: '#EDE4D6', tint: 'sand' },
     specs: [
       { label: 'Surface', value: 'AcrylX™ proprietary applied acrylic' },
-      { label: 'Substrate', value: 'RTM (Resin Transfer Molded) fiberglass' },
+      { label: 'Substrate', value: 'Closed mold fiberglass' },
       { label: 'Reinforcement', value: 'Composite reinforcement matrix' },
       { label: 'Configurations', value: 'Bases · Stalls · Tub-Showers · Walls' },
       { label: 'Edge Variant', value: '"The Edge" — premium tile transition' },
@@ -164,7 +164,7 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
       {
         title: 'The Edge Treatment',
-        body: 'Optional Edge profile — Florestone\'s premium tile-transition detail at the perimeter. A featured Florestone innovation on RTM and recess bases.',
+        body: 'Optional Edge profile — Florestone\'s premium tile-transition detail at the perimeter. A featured Florestone innovation on closed mold and recess bases.',
       },
       {
         title: 'Built for the Trade',
@@ -191,8 +191,8 @@ export const SERIES: Record<SeriesKey, Series> = {
         a: 'AcrylX™ is Florestone\'s proprietary applied acrylic with a composite reinforcement matrix. It\'s color-through, stain- and chip-resistant, and repairable in the field. Lifetime warranted in residential use and 30 years in commercial use.',
       },
       {
-        q: 'What\'s the difference between F Series and Saflor® (S Series)?',
-        a: 'F Series is RTM fiberglass with our AcrylX™ surface — lighter, designed for both bases and full one-piece configurations including tub-showers and stalls. Saflor® (S Series) is the compression-molded recess line — heavier-duty for single-threshold recess installs.',
+        q: 'What\'s the difference between F Series and S Series?',
+        a: 'F Series is closed mold fiberglass with our AcrylX™ surface — lighter, designed for both bases and full one-piece configurations including tub-showers and stalls, produced in Madera, CA. S Series is the compression-molded recess line — heavier-duty for single-threshold recess installs, produced in Denison, TX.',
       },
       {
         q: 'Can the F Series tub-showers ship as a single piece for new construction?',
@@ -200,9 +200,9 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
     ],
     compareWith: ['s-series', 't-series', 'barrier-free'],
-    metaTitle: 'F Series RTM Fiberglass Shower Bases & Tub-Showers | Florestone',
+    metaTitle: 'F Series Closed Mold Fiberglass Shower Bases & Tub-Showers | Florestone',
     metaDescription:
-      'Florestone F Series — RTM fiberglass shower bases, one-piece stalls, 60-inch tub-showers and 3-piece walls, finished in proprietary AcrylX™. Lifetime warranted residential.',
+      'Florestone F Series — closed mold fiberglass shower bases, one-piece stalls, 60-inch tub-showers and 3-piece walls, finished in proprietary AcrylX™. Lifetime warranted residential.',
   },
   't-series': {
     key: 't-series',
@@ -300,7 +300,7 @@ export const SERIES: Record<SeriesKey, Series> = {
     hero: { swatch: '#D9E8F4', tint: 'accent' },
     specs: [
       { label: 'Compliance', value: 'Americans with Disabilities Act (ADA)' },
-      { label: 'Materials', value: 'Cast terrazzo · RTM fiberglass · AcrylX™' },
+      { label: 'Materials', value: 'Cast terrazzo · Closed mold fiberglass · AcrylX™' },
       { label: 'Configurations', value: 'Curbless · Roll-In · Transfer · Drop Front' },
       { label: 'Drain', value: 'Linear (where required) or center' },
       { label: 'Featured Models', value: 'T-400 · T-500 · T-23-2HR · 4040F BF' },
@@ -315,7 +315,7 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
       {
         title: 'Three Materials, One Compliance Standard',
-        body: 'Spec cast terrazzo (T-400/500/23-2HR) for institutional weight, RTM fiberglass with AcrylX™ for renovation, or molded fiberglass barrier-free (4040F) — all meet ADA out of the box.',
+        body: 'Spec cast terrazzo (T-400/500/23-2HR) for institutional weight, closed mold fiberglass with AcrylX™ for renovation, or molded fiberglass barrier-free (4040F) — all meet ADA out of the box.',
       },
       {
         title: 'Curbless, Roll-In and Transfer',
@@ -326,8 +326,8 @@ export const SERIES: Record<SeriesKey, Series> = {
         body: 'The same line specified into hospitals, rehab facilities, senior living communities and accessible-housing projects nationwide.',
       },
       {
-        title: 'Wedge-Lok® Drain on Saflor® Variants',
-        body: 'On Saflor®-branded barrier-free bases, our patented Wedge-Lok® integral drain seal eliminates one of the most common ADA-spec leak callbacks.',
+        title: 'Wedge-Lok® Drain on S Series Variants',
+        body: 'On S Series compression-molded barrier-free bases, our patented Wedge-Lok® integral drain seal eliminates one of the most common ADA-spec leak callbacks.',
       },
       {
         title: 'Stocked Through the Trade',
@@ -339,8 +339,8 @@ export const SERIES: Record<SeriesKey, Series> = {
       { code: 'T-500', name: 'Model 500 Terrazzo Transfer', dimensions: '36 × 36', type: 'Transfer terrazzo', ada: true },
       { code: 'T-23-2HR', name: 'Model 23-2HR Terrazzo BF', dimensions: 'Multiple', type: 'Barrier-free recess', ada: true },
       { code: '4040F-BF', name: 'Model 4040F Molded Fiberglass BF', dimensions: '40 × 40', type: 'Molded fiberglass curbless', ada: true },
-      { code: 'F-BF-AcrylX', name: 'F Series BF w/ AcrylX™', dimensions: 'Multiple', type: 'RTM fiberglass / AcrylX™', ada: true },
-      { code: 'SR-BF', name: 'Saflor® Barrier-Free', dimensions: 'Multiple', type: 'Compression-molded BF with Wedge-Lok®', ada: true },
+      { code: 'F-BF-AcrylX', name: 'F Series BF w/ AcrylX™', dimensions: 'Multiple', type: 'Closed mold fiberglass / AcrylX™', ada: true },
+      { code: 'SR-BF', name: 'S Series Barrier-Free', dimensions: 'Multiple', type: 'Compression-molded BF with Wedge-Lok®', ada: true },
     ],
     faqs: [
       {
@@ -349,7 +349,7 @@ export const SERIES: Record<SeriesKey, Series> = {
       },
       {
         q: 'Which material should I spec for a healthcare project?',
-        a: 'For institutional healthcare with heavy use, T Series terrazzo (Models 400, 500, 23-2HR) gives you 3,000+ PSI solid material that outlasts most building skins. For senior-living renovation or multifamily aging-in-place, our RTM fiberglass with AcrylX™ is lighter, faster to install and repairable in the field. Both meet ADA.',
+        a: 'For institutional healthcare with heavy use, T Series terrazzo (Models 400, 500, 23-2HR) gives you 3,000+ PSI solid material that outlasts most building skins. For senior-living renovation or multifamily aging-in-place, our closed mold fiberglass with AcrylX™ is lighter, faster to install and repairable in the field. Both meet ADA.',
       },
       {
         q: 'Does Florestone document ADA compliance on its products?',
@@ -359,22 +359,22 @@ export const SERIES: Record<SeriesKey, Series> = {
     compareWith: ['s-series', 'f-series', 't-series'],
     metaTitle: 'Barrier-Free ADA Shower Bases — Terrazzo, AcrylX™, Fiberglass | Florestone',
     metaDescription:
-      'Florestone Barrier-Free line — one of the industry\'s deepest ADA-compliant shower catalogs. Terrazzo Models 400/500, molded fiberglass 4040F, AcrylX™ and Saflor® barrier-free options.',
+      'Florestone Barrier-Free line — one of the industry\'s deepest ADA-compliant shower catalogs. Terrazzo Models 400/500, molded fiberglass 4040F, AcrylX™ and S Series compression-molded barrier-free options.',
   },
 };
 
 export const HOME_FAQS: FAQ[] = [
   {
     q: 'Who is Florestone?',
-    a: 'Florestone is a three-generation family business founded by Ray and Ann Flores in 1947 in Oakland, California. We pioneered compression-molded shower receptors in 1965 and have been one of the original developers of ADA-compliant shower products. Today we manufacture out of Madera, California and Denison, Texas as part of American Bath Group.',
+    a: 'Florestone is an American manufacturer founded in 1947 in Oakland, California. We pioneered compression-molded shower receptors in 1965 and have been one of the original developers of ADA-compliant shower products. Today Florestone operates two US plants — Madera, California (closed mold fiberglass F Series, cast terrazzo, AcrylX™) and Denison, Texas (compression-molded S Series) — as part of American Bath Group.',
   },
   {
     q: 'What does Florestone make?',
-    a: 'Shower bases (Saflor® recess, F Series RTM fiberglass with AcrylX™, T Series terrazzo), one-piece shower stalls, 60-inch tub-shower units, 3-piece shower walls for remodel, bathtubs (Reyna, Diana, Pegasus, Venetian), terrazzo mop sinks for commercial/institutional, and utility sinks. Distributed across all 50 states and Canada through plumbing wholesalers.',
+    a: 'Shower bases (S Series compression-molded recess, F Series closed mold fiberglass with AcrylX™, T Series terrazzo), one-piece shower stalls, 60-inch tub-shower units, 3-piece shower walls for remodel, bathtubs (Reyna, Diana, Pegasus, Venetian), terrazzo mop sinks for commercial/institutional, and utility sinks. Distributed across all 50 states and Canada through plumbing wholesalers.',
   },
   {
-    q: 'What\'s the difference between Saflor®, F Series, and T Series?',
-    a: 'Saflor® is our registered recess line — compression-molded with Wedge-Lok® integral drain seal. F Series is our RTM fiberglass platform finished in proprietary AcrylX™ — lighter, broader configuration range (bases, stalls, tub-showers, walls). T Series is solid cast terrazzo at 3,000+ PSI — the heritage line still specified into institutional and healthcare projects.',
+    q: 'What\'s the difference between S Series, F Series, and T Series?',
+    a: 'S Series is our compression-molded recess line with Wedge-Lok® integral drain seal, manufactured in Denison, TX. F Series is our closed mold fiberglass platform finished in proprietary AcrylX™ — lighter, broader configuration range (bases, stalls, tub-showers, walls), manufactured in Madera, CA. T Series is solid cast terrazzo at 3,000+ PSI — the heritage line still specified into institutional and healthcare projects, cast in Madera, CA.',
   },
   {
     q: 'Where are Florestone products made?',
@@ -391,7 +391,7 @@ export const HOME_FAQS: FAQ[] = [
 ];
 
 export const TRUST_PILLS = [
-  'Family-built since 1947',
+  'Made in the USA since 1947',
   'Compression-molded since 1965',
   'ADA leadership',
   'IAPMO File 0687 · UPC · ANSI Z124',

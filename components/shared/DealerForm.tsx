@@ -127,8 +127,8 @@ export default function DealerForm() {
           className={inputClass}
         >
           <option value="">Select a Florestone line</option>
-          <option value="Saflor S Series">S Series — Compression-Molded Recess Shower Bases</option>
-          <option value="F Series AcrylX">F Series — AcrylX™ Closed Mold Fiberglass</option>
+          <option value="S Series">S Series — Compression-Molded Recess Shower Bases</option>
+          <option value="F Series">F Series — AcrylX™ Closed Mold Fiberglass</option>
           <option value="T Series Terrazzo">T Series — Cast Terrazzo (Models 100–500)</option>
           <option value="Barrier-Free">Barrier-Free / ADA-Compliant</option>
           <option value="Mop Sinks">Terrazzo Mop Sinks (Models 5–99)</option>

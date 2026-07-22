@@ -74,7 +74,7 @@ const COLOR = {
 } as const;
 
 export const ALL_PRODUCTS: Product[] = [
-  // ─── S Series (Saflor compression-molded) ─────────────────────────────
+  // ─── S Series (compression-molded) ─────────────────────────────
   {
     id: 'SR-3232', name: 'S Series Recess 32×32', series: 'S Series', category: 'Shower Bases', size: '32×32', type: 'Single-threshold recess',
     image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg',
@@ -156,7 +156,7 @@ export const ALL_PRODUCTS: Product[] = [
   { id: 'SR-CORNER', name: 'S Series Corner Recess', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'Two-wall corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg' },
   { id: 'SR-NEO', name: 'S Series NEO Angle', series: 'S Series', category: 'Shower Bases', size: 'Multiple', type: 'NEO angle corner', image: '/images/bases/saflor/lifestyle/florestone-saflor-4260-1-base-crr-shot01-deco-w.jpg' },
 
-  // ─── F Series (RTM AcrylX) ──────────────────────────────────────────
+  // ─── F Series (Closed Mold AcrylX) ──────────────────────────────────────────
   {
     id: 'F-3636', name: 'F Series 36×36 Base', series: 'F Series', category: 'Shower Bases', size: '36×36', type: 'Shower base',
     image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3260f-wht-deco.jpg',
@@ -304,7 +304,7 @@ export const ALL_PRODUCTS: Product[] = [
       characteristics: ['ADA-compliant transfer entry', 'Reversible left/right drain', 'Integral nailing flange', 'Pre-leveled subfloor cavity'],
     },
   },
-  { id: 'F-BF', name: 'F Series AcrylX™ Barrier-Free', series: 'F Series', category: 'Barrier-Free', size: 'Multiple', type: 'RTM AcrylX curbless ADA', image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3060f-bf-lh-wht-deco.jpg', ada: true },
+  { id: 'F-BF', name: 'F Series AcrylX™ Barrier-Free', series: 'F Series', category: 'Barrier-Free', size: 'Multiple', type: 'Closed mold AcrylX curbless ADA', image: '/images/bases/f-series/lifestyles/jpg/florestone-f-series-3060f-bf-lh-wht-deco.jpg', ada: true },
   { id: 'SR-BF', name: 'S Series Barrier-Free', series: 'S Series', category: 'Barrier-Free', size: 'Multiple', type: 'Compression-molded BF ADA', image: '/images/ada/3562h/3562h-ada-deco.jpg', ada: true },
   { id: '3562H', name: 'Model 3562H ADA Roll-In', series: 'T Series', category: 'Barrier-Free', size: '35×62', type: 'Roll-In terrazzo ADA', image: '/images/ada/3562h/3562h-ada-deco.jpg', ada: true },
 

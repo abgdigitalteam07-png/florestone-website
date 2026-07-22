@@ -214,7 +214,7 @@ export default function FindADealerPage() {
 
       <CTABand
         heading="Ready to specify Florestone?"
-        body="Three generations of family manufacturing — spec sheets, CAD files, and a nationwide dealer network ready for your project."
+        body="75+ years of American manufacturing across two US plants — spec sheets, CAD files, and a nationwide dealer network ready for your project."
         ctaLabel="Download Resources"
         ctaHref="/resources"
         secondaryLabel="Contact Sales"

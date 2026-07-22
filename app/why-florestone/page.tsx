@@ -66,7 +66,7 @@ const certs = [
   {
     id: '06',
     title: 'S Series — Since 1965',
-    body: 'Saflor® is a registered trademark of Florestone Products. The Saflor® compression-molded receptor — with its proprietary Wedge-Lok® drain seal — has been a trade standard since 1965.',
+    body: 'The S Series compression-molded receptor — with its proprietary Wedge-Lok® drain seal — has been a Florestone trade standard since 1965. Manufactured at our Denison, TX plant.',
   },
 ];
 

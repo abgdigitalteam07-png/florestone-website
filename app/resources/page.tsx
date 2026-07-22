@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbSchema, faqSchema } from '@/components/seo/JsonLd';
 export const metadata: Metadata = {
   title: 'Spec Sheets, CAD Files & Resources | Florestone',
   description:
-    'Download Florestone spec sheets, CAD drawings, installation guides, and ADA compliance documentation. PDF and CAD files available for S Series Saflor®, F Series AcrylX™, T Series Terrazzo, and barrier-free shower products.',
+    'Download Florestone spec sheets, CAD drawings, installation guides, and ADA compliance documentation. PDF and CAD files available for S Series compression-molded, F Series AcrylX™, T Series Terrazzo, and barrier-free shower products.',
 };
 
 type ResourceType = 'pdf' | 'cad' | 'install' | 'cert';
