@@ -442,9 +442,20 @@ function buildFamilies(products: SalsifyProduct[]): ProductFamily[] {
       variants,
     });
   }
-  // Sort: ADA families first, then by count (desc), then alphabetically.
+  // Sort: per Notion review — ADA → S Series → F Series → Tub/Tub-Shower → Utilities → Terrazzo
+  const categoryPriority = (f: ProductFamily): number => {
+    if (f.ada || f.category === 'Barrier-Free') return 0;
+    if (f.series === 'S Series') return 1;
+    if (f.series === 'F Series' && (f.category === 'Shower Bases' || f.category === 'Shower Stalls')) return 2;
+    if (f.category === 'Bathtubs') return 3;
+    if (f.category === 'Shower Walls') return 4;
+    if (f.category === 'Mop Sinks') return 5;
+    if (f.series === 'T Series' || f.series === 'Terrazzo') return 6;
+    return 7;
+  };
   return families.sort((a, b) => {
-    if (a.ada !== b.ada) return a.ada ? -1 : 1;
+    const pd = categoryPriority(a) - categoryPriority(b);
+    if (pd !== 0) return pd;
     return b.count - a.count || a.name.localeCompare(b.name);
   });
 }
@@ -458,7 +469,8 @@ export function getFamilyBySlug(slug: string): ProductFamily | undefined {
   return ALL_FAMILIES_DATA.find((f) => f.slug === slug);
 }
 
-export const ALL_CATEGORIES: readonly string[] = SALSIFY_CATEGORIES;
+const CATEGORY_ORDER = ['Barrier-Free', 'Shower Bases', 'Shower Stalls', 'Shower Walls', 'Bathtubs', 'Mop Sinks'] as const;
+export const ALL_CATEGORIES: readonly string[] = CATEGORY_ORDER.filter(c => (SALSIFY_CATEGORIES as readonly string[]).includes(c));
 
 // ─── Detail helpers ─────────────────────────────────────────────────────────
 

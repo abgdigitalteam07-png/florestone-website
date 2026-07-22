@@ -65,12 +65,27 @@ export default function ProductCatalogClient() {
   const toggleCategory = (c: string) =>
     setSelectedCategories(prev => prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c]);
 
+  // Normalize size queries: "3636" → "36×36", "36 48" or "36x48" → "36×48"
+  const normalizeSize = (q: string): string => {
+    const trimmed = q.trim();
+    const numOnly = trimmed.replace(/[^0-9]/g, '');
+    if (numOnly.length === 4 && numOnly === trimmed) {
+      return `${numOnly.slice(0, 2)}×${numOnly.slice(2)}`;
+    }
+    const parts = trimmed.split(/[x×\s,]+/).filter(Boolean);
+    if (parts.length === 2 && parts.every(p => /^\d+$/.test(p))) {
+      return `${parts[0]}×${parts[1]}`;
+    }
+    return q;
+  };
+
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
+    const qSize = normalizeSize(q);
     return ALL_FAMILIES_DATA.filter(f => {
       if (q) {
         const hay = [f.name, f.series, f.category, f.sizeRange, ...f.variants.map(v => v.name), ...f.variants.map(v => v.modelNumber ?? ''), ...f.variants.map(v => v.sku ?? '')].join(' ').toLowerCase();
-        if (!hay.includes(q)) return false;
+        if (!hay.includes(q) && !hay.includes(qSize)) return false;
       }
       // Match if ANY variant is in the selected category/series — families can
       // span multiple categories (e.g., Fiberglass Smooth Wall covers both
