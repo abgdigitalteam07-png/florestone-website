@@ -248,9 +248,16 @@ export default function ProductDetailClient({
               <p style={{ fontFamily: 'var(--font-heading)' }} className="text-[11px] font-semibold tracking-wider uppercase text-[var(--color-text-light)] mb-1">
                 Trade Pricing
               </p>
-              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                Specified through the plumbing wholesale channel. Contact your local rep or wholesaler for project pricing.
-              </p>
+              {detail.listPrice ? (
+                <div className="flex items-baseline gap-3">
+                  <span className="text-[22px] font-semibold text-[var(--color-text)]">{detail.listPrice}</span>
+                  <span style={{ fontFamily: 'var(--font-heading)' }} className="text-[11px] tracking-wider uppercase text-[var(--color-text-light)]">List Price</span>
+                </div>
+              ) : (
+                <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
+                  Specified through the plumbing wholesale channel. Contact your local rep or wholesaler for project pricing.
+                </p>
+              )}
             </div>
 
             {/* CTAs */}

@@ -48,6 +48,7 @@ export type ProductDetail = {
   characteristics: string[];
   warrantyResidential: string;
   warrantyCommercial: string;
+  listPrice?: string;
 };
 
 export type Product = {
@@ -529,6 +530,9 @@ export function getProductDetail(product: Product): ProductDetail {
     characteristics: d.characteristics ?? DEFAULT_CHARACTERISTICS,
     warrantyResidential: d.warrantyResidential ?? 'Lifetime',
     warrantyCommercial: d.warrantyCommercial ?? '1-Year',
+    listPrice: (product as SalsifyProduct).listPriceUsd
+      ? `$${parseFloat((product as SalsifyProduct).listPriceUsd!).toFixed(2)}`
+      : d.listPrice,
   };
 }
 
