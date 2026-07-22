@@ -24,7 +24,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs mb-4">
-              Quality shower and bath fixtures manufactured in the USA since 1947. Family-built for the plumbing trade.
+              Quality shower and bath fixtures manufactured in the USA since 1947. Two plants, one trade standard.
             </p>
             <p className="text-xs text-white/30">An American Bath Group brand.</p>
           </div>

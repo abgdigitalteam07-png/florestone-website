@@ -17,7 +17,7 @@ export const ORG_SCHEMA = {
   description:
     'Florestone is an American manufacturer of shower bases, ADA barrier-free units, terrazzo mop sinks and complete bath solutions. Founded in 1947, manufactured in Madera, CA and Denison, TX.',
   foundingDate: '1947',
-  founder: { '@type': 'Person', name: 'Ray Flores' },
+  foundingLocation: { '@type': 'Place', name: 'Oakland, California, USA' },
   parentOrganization: { '@type': 'Organization', name: 'American Bath Group' },
   address: [
     {

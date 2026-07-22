@@ -445,7 +445,7 @@ export default function WhyFlorestonePage() {
               style={{ fontFamily: 'var(--font-heading)' }}
               className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight"
             >
-              Family-built since 1947.
+              USA-made since 1947.
               <br />
               Trade-grade every time.
             </h2>
