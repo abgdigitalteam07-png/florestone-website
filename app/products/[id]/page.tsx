@@ -7,7 +7,8 @@ import { ALL_PRODUCTS, getProductById, getProductDetail } from '../products-data
 import ProductDetailClient from './ProductDetailClient';
 
 export async function generateStaticParams() {
-  return ALL_PRODUCTS.map(p => ({ id: p.id }));
+  const seen = new Set<string>();
+  return ALL_PRODUCTS.filter(p => { if (seen.has(p.id)) return false; seen.add(p.id); return true; }).map(p => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

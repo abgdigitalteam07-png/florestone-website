@@ -8,13 +8,13 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 import { JsonLd, ORG_SCHEMA, faqSchema, breadcrumbSchema } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Why Florestone | Family-Built Since 1947 — Three Generations, Two US Plants',
+  title: 'Why Florestone | USA-Made Since 1947 — Two US Plants, ADA Leader',
   description:
-    'Florestone was founded in 1947 by Ray and Ann Flores in Oakland, California. Three generations of the Flores family still lead the company today, manufacturing shower bases, terrazzo mop sinks, and ADA-compliant bath products in Madera, CA and Denison, TX. IAPMO File 0687 · ANSI Z124 · ADA Leader.',
+    'Florestone was founded in 1947 in Oakland, California. Manufacturing shower bases, terrazzo mop sinks, and ADA-compliant bath products in Madera, CA and Denison, TX. Compression-molded S Series from Denison, TX. Closed mold fiberglass F Series and terrazzo from Madera, CA. IAPMO File 0687 · ANSI Z124 · ADA Leader.',
   openGraph: {
-    title: 'Why Florestone | Family-Built Since 1947',
+    title: 'Why Florestone | USA-Made Since 1947',
     description:
-      'Three generations of the Flores family. Two US manufacturing plants. 75+ years of trade-grade shower bases, ADA units, and terrazzo mop sinks made in America.',
+      '75+ years of American manufacturing. Two US plants — Madera, CA and Denison, TX. Trade-grade shower bases, ADA units, and terrazzo mop sinks made in America.',
     type: 'website',
     url: 'https://www.florestone.com/why-florestone',
     images: [
@@ -65,7 +65,7 @@ const certs = [
   },
   {
     id: '06',
-    title: 'Saflor® Registered',
+    title: 'S Series — Since 1965',
     body: 'Saflor® is a registered trademark of Florestone Products. The Saflor® compression-molded receptor — with its proprietary Wedge-Lok® drain seal — has been a trade standard since 1965.',
   },
 ];
@@ -96,15 +96,15 @@ const whyCards = [
 const FAQS = [
   {
     q: 'Who makes Florestone products?',
-    a: 'Florestone Products is an American manufacturer founded in 1947 by Ray and Ann Flores in Oakland, California. The company is currently led by Ron Flores (President/CEO) and Carol Flores Deaver (Secretary/CFO) — the second generation of the founding Flores family. Florestone is part of American Bath Group (ABG), the largest privately-held bath products manufacturer in the United States. Despite being part of ABG, the company continues to operate under the Florestone family name and maintains its own US manufacturing plants.',
+    a: 'Florestone Products is an American manufacturer founded in 1947. The company operates two US manufacturing plants — a flagship 15-acre facility in Madera, California (closed mold fiberglass F Series, cast terrazzo, and AcrylX™ surface application) and a second plant in Denison, Texas (compression-molded S Series). Florestone is part of American Bath Group (ABG), the largest privately-held bath products manufacturer in the United States, and maintains its own US manufacturing plants and trade-grade production standards.',
   },
   {
     q: 'Where are Florestone products manufactured?',
-    a: 'All Florestone products are manufactured in the United States at two plants. The flagship plant, located at 2851 Falcon Drive in Madera, California (San Joaquin Valley, Central California), is a 15-acre facility that has operated since 1947. It produces compression-molded Saflor® receptors, cast terrazzo, RTM fiberglass F Series units, and AcrylX™ surface-finished products. The second plant, located at 1215 Wayne Cabaniss Drive in Denison, Texas, serves the Central, Gulf Coast, Southeast, and Midwest trade channels with shorter lead times. No Florestone products are manufactured offshore.',
+    a: 'All Florestone products are manufactured in the United States at two plants. The flagship plant, located at 2851 Falcon Drive in Madera, California (San Joaquin Valley, Central California), is a 15-acre facility that has operated since 1947. It produces cast terrazzo, closed mold fiberglass F Series units, and AcrylX™ surface-finished products. The second plant, located at 1215 Wayne Cabaniss Drive in Denison, Texas, produces the compression-molded S Series and serves the Central, Gulf Coast, Southeast, and Midwest trade channels with shorter lead times. No Florestone products are manufactured offshore.',
   },
   {
     q: 'How long has Florestone been in business?',
-    a: 'Florestone has been in continuous operation since 1947 — over 75 years. The company was originally called Pacific Cement Laundry Tray Company and was founded by Ray and Ann Flores in Oakland, California, to meet post-war housing demand. The company renamed itself Florestone Products in 1958 after adding cast terrazzo products. Key milestones include: 1965 (first compression-molded shower receptors), 1974 (fiberglass bathtubs), 1992 (acrylic products), and ongoing ADA leadership since the 1990s. Three generations of the Flores family have led the business.',
+    a: 'Florestone has been in continuous operation since 1947 — over 75 years. The company was originally called Pacific Cement Laundry Tray Company, founded in Oakland, California to meet post-war housing demand. The company renamed itself Florestone Products in 1958 after adding cast terrazzo products. Key milestones include: 1965 (first compression-molded shower receptors), 1974 (fiberglass bathtubs), 1992 (acrylic products), and ongoing ADA leadership since the 1990s. Today Florestone operates two US plants — Denison, TX for compression-molded S Series and Madera, CA for closed mold fiberglass F Series and terrazzo.',
   },
   {
     q: 'What certifications and approvals does Florestone hold?',
@@ -112,7 +112,7 @@ const FAQS = [
   },
   {
     q: 'What product families does Florestone make?',
-    a: 'Florestone manufactures three core material platforms for shower bases: the S Series (Saflor® compression-molded recess bases, available in 32×32 through multiple configurations including corner and NEO angle), the F Series (RTM fiberglass with proprietary AcrylX™ applied-acrylic surface, including tub-shower units, 3-piece wall systems, and The Edge premium series), and the T Series (solid cast terrazzo Models 100, 200, 300, 350, 400, and 500). In addition to shower bases, Florestone produces a dedicated Barrier-Free ADA line with 16+ models, terrazzo and molded-fiberglass mop sinks for commercial specification, fiberglass bathtubs (seven models), and utility sinks for laundry and janitorial applications.',
+    a: 'Florestone manufactures three core material platforms for shower bases: the S Series (compression-molded recess bases, available in 32×32 through multiple configurations including corner and NEO angle, produced at our Denison, TX plant), the F Series (closed mold fiberglass with proprietary AcrylX™ applied-acrylic surface, including tub-shower units, 3-piece wall systems, and The Edge premium series, produced in Madera, CA), and the T Series (solid cast terrazzo Models 100, 200, 300, 350, 400, and 500, cast in Madera, CA). In addition to shower bases, Florestone produces a dedicated Barrier-Free ADA line with 16+ models, terrazzo and molded-fiberglass mop sinks for commercial specification, fiberglass bathtubs (seven models), and utility sinks for laundry and janitorial applications.',
   },
 ];
 
@@ -181,7 +181,7 @@ export default function WhyFlorestonePage() {
             </h1>
 
             <p className="text-white/65 text-[16px] leading-[1.75] mb-8 max-w-md font-light">
-              75+ years, three generations of the Flores family, and every unit still manufactured in the USA. Family business. Family name. Family standards.
+              75+ years, two US manufacturing plants, and every unit still made in America. Denison, TX for compression-molded S Series. Madera, CA for closed mold fiberglass F Series and terrazzo. Trade-spec every time.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -220,21 +220,21 @@ export default function WhyFlorestonePage() {
                 style={{ fontFamily: 'var(--font-heading)' }}
                 className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl tracking-tight mb-7 leading-tight"
               >
-                Founded 1947.<br />Still family-run today.
+                Founded 1947.<br />Two plants. Built for the trade.
               </h2>
 
               <div className="space-y-5 text-[var(--color-text-muted)] text-[15px] leading-[1.8] font-light">
                 <p>
-                  Ray and Ann Flores opened Pacific Cement Laundry Tray Company in Oakland, California in 1947 — building cast utility products for the post-war housing boom. In 1958, with terrazzo added to the catalog, they combined their family name with the material that defined it: <strong className="text-[var(--color-secondary)] font-semibold">Flore</strong> + <strong className="text-[var(--color-secondary)] font-semibold">stone</strong>.
+                  Florestone opened as Pacific Cement Laundry Tray Company in Oakland, California in 1947 — building cast utility products for the post-war housing boom. In 1958, with terrazzo added to the catalog, the company was renamed by combining the flagship material with the manufacturing identity: <strong className="text-[var(--color-secondary)] font-semibold">Flore</strong> + <strong className="text-[var(--color-secondary)] font-semibold">stone</strong>.
                 </p>
                 <p>
-                  In 1965, Florestone became one of the first manufacturers in the industry to produce compression-molded shower receptors, mop sinks, and laundry trays. That process still defines the Saflor® line today.
+                  In 1965, Florestone became one of the first manufacturers in the industry to produce compression-molded shower receptors, mop sinks, and laundry trays. That process still defines the S Series line today, manufactured at our Denison, TX plant.
                 </p>
                 <p>
                   Since the 1990s, Florestone has been an ADA leadership brand — developing barrier-free shower products that meet the Americans with Disabilities Act and ANSI A117.1 before most competitors entered the space.
                 </p>
                 <p>
-                  Today the company is run by Ron Flores (President/CEO) and Carol Flores Deaver (Secretary/CFO) — children of the founders, and the second generation to lead the business. Part of American Bath Group, but still the family name on every unit.
+                  Today Florestone is part of American Bath Group, operating two US manufacturing plants — Madera, CA (closed mold fiberglass F Series, cast terrazzo, AcrylX™) and Denison, TX (compression-molded S Series). Every unit still made in America to trade-spec standards.
                 </p>
               </div>
 
@@ -266,7 +266,7 @@ export default function WhyFlorestonePage() {
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-[var(--color-offwhite)]">
               <Image
                 src="/images/bases/saflor/lifestyle/florestone-saflor-3660-1-base-wht-shot01-deco-w.jpg"
-                alt="Florestone Saflor shower base in modern bathroom setting"
+                alt="Florestone S Series shower base in modern bathroom setting"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -341,7 +341,7 @@ export default function WhyFlorestonePage() {
                   Madera, California
                 </h3>
                 <p className="text-white/70 text-[14px] leading-relaxed font-light mb-3 max-w-sm">
-                  2851 Falcon Drive — our flagship 15-acre plant in California&apos;s Central Valley. Compression molding, terrazzo casting, RTM fiberglass, and AcrylX™ surface application all happen here. West Coast distribution hub serving all of California, the Pacific Northwest, and the Mountain West.
+                  2851 Falcon Drive — our flagship 15-acre plant in California&apos;s Central Valley. Compression molding, terrazzo casting, closed mold fiberglass, and AcrylX™ surface application all happen here. West Coast distribution hub serving all of California, the Pacific Northwest, and the Mountain West.
                 </p>
                 <p
                   style={{ fontFamily: 'var(--font-heading)' }}
@@ -445,7 +445,7 @@ export default function WhyFlorestonePage() {
               style={{ fontFamily: 'var(--font-heading)' }}
               className="font-semibold text-[var(--color-secondary)] text-3xl md:text-4xl leading-tight tracking-tight"
             >
-              Family-built since 1947.
+              Made in America since 1947.
               <br />
               Trade-grade every time.
             </h2>
@@ -501,9 +501,9 @@ export default function WhyFlorestonePage() {
       </section>
 
       <CTABand
-        heading="Three generations stand behind every Florestone unit."
+        heading="Two US plants stand behind every Florestone unit."
         body="Find your Florestone wholesaler or call our sales team in Madera direct at (800) 446-2647."
-        ctaLabel="Find a Wholesaler"
+        ctaLabel="Where to Buy"
         ctaHref="/find-a-dealer"
         secondaryLabel="Browse the Catalog"
         secondaryHref="/products"

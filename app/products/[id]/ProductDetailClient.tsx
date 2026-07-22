@@ -170,21 +170,30 @@ export default function ProductDetailClient({
                     Color <span className="text-[var(--color-text-light)] font-normal normal-case tracking-normal">— {currentColor.name}</span>
                   </p>
                   <div className="flex gap-2">
-                    {detail.colors.map(c => (
-                      <button
-                        key={c.id}
-                        onClick={() => handleColor(c.id)}
-                        aria-label={`Color: ${c.name}`}
-                        aria-pressed={color === c.id}
-                        title={c.name}
-                        className={`relative w-8 h-8 rounded-full border transition-all ${
-                          color === c.id
-                            ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2'
-                            : 'border-[var(--color-powder-dark)] hover:border-[var(--color-text-muted)]'
-                        }`}
-                        style={{ backgroundColor: c.hex }}
+                    {detail.colors.length === 1 ? (
+                      <div
+                        aria-label={`Color: ${detail.colors[0].name}`}
+                        title={detail.colors[0].name}
+                        className="relative w-8 h-8 rounded-full border border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2"
+                        style={{ backgroundColor: detail.colors[0].hex }}
                       />
-                    ))}
+                    ) : (
+                      detail.colors.map(c => (
+                        <button
+                          key={c.id}
+                          onClick={() => handleColor(c.id)}
+                          aria-label={`Color: ${c.name}`}
+                          aria-pressed={color === c.id}
+                          title={c.name}
+                          className={`relative w-8 h-8 rounded-full border transition-all ${
+                            color === c.id
+                              ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2'
+                              : 'border-[var(--color-powder-dark)] hover:border-[var(--color-text-muted)]'
+                          }`}
+                          style={{ backgroundColor: c.hex }}
+                        />
+                      ))
+                    )}
                   </div>
                 </div>
               )}
@@ -237,11 +246,25 @@ export default function ProductDetailClient({
             {/* Trade callout */}
             <div className="mb-4">
               <p style={{ fontFamily: 'var(--font-heading)' }} className="text-[11px] font-semibold tracking-wider uppercase text-[var(--color-text-light)] mb-1">
-                Trade Pricing
+                {detail.listPrice ? 'List Price' : 'Trade Pricing'}
               </p>
-              <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
-                Specified through the plumbing wholesale channel. Contact your local rep or wholesaler for project pricing.
-              </p>
+              {detail.listPrice ? (
+                <div className="flex items-baseline gap-3">
+                  <span
+                    style={{ fontFamily: 'var(--font-heading)' }}
+                    className="text-[32px] font-semibold text-[var(--color-secondary)] leading-none"
+                  >
+                    {detail.listPrice}
+                  </span>
+                  <span className="text-[12px] text-[var(--color-text-muted)] tracking-wider uppercase">
+                    List Price
+                  </span>
+                </div>
+              ) : (
+                <p className="text-[15px] text-[var(--color-text-muted)] leading-relaxed">
+                  Specified through the plumbing wholesale channel. Contact your local rep or wholesaler for project pricing.
+                </p>
+              )}
             </div>
 
             {/* CTAs */}

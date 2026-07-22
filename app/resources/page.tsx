@@ -22,14 +22,14 @@ interface Resource {
 
 const resources: Resource[] = [
   // PDF Spec Sheets
-  { name: 'S Series Saflor® Spec Sheet', description: 'Complete dimensions, materials, colors, compliance', type: 'pdf', category: 'PDF Spec Sheets' },
-  { name: 'F Series AcrylX™ Spec Sheet', description: 'RTM fiberglass bases, stalls, tub-showers', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'S Series Spec Sheet', description: 'Complete dimensions, materials, colors, compliance', type: 'pdf', category: 'PDF Spec Sheets' },
+  { name: 'F Series AcrylX™ Spec Sheet', description: 'Closed mold fiberglass bases, stalls, tub-showers', type: 'pdf', category: 'PDF Spec Sheets' },
   { name: 'T Series Terrazzo Spec Sheet', description: 'Models 100–500, dimensions, 3000 PSI', type: 'pdf', category: 'PDF Spec Sheets' },
   { name: 'Barrier-Free / ADA Documentation', description: 'All ADA models, ANSI A117.1 compliance', type: 'pdf', category: 'PDF Spec Sheets' },
   { name: 'Utility & Mop Sink Catalog', description: 'Commercial terrazzo and molded utility sinks', type: 'pdf', category: 'PDF Spec Sheets' },
   { name: 'Complete Product Catalog', description: 'Full Florestone product line overview', type: 'pdf', category: 'PDF Spec Sheets' },
   // CAD Files
-  { name: 'S Series CAD Drawings', description: 'Section CAD for all Saflor® recess configurations', type: 'cad', category: 'CAD Files' },
+  { name: 'S Series CAD Drawings', description: 'Section CAD for all S Series recess configurations', type: 'cad', category: 'CAD Files' },
   { name: 'F Series CAD Drawings', description: 'Section CAD for F Series bases and tub-showers', type: 'cad', category: 'CAD Files' },
   { name: 'T Series CAD Drawings', description: 'Terrazzo Models 100–500 section drawings', type: 'cad', category: 'CAD Files' },
   { name: 'Barrier-Free CAD Package', description: 'ADA models 400, 500, 23-2HR CAD files', type: 'cad', category: 'CAD Files' },
@@ -247,7 +247,7 @@ export default function ResourcesPage() {
       <CTABand
         heading="Need a custom spec package?"
         body="For project submittals, volume orders, and custom documentation — our sales team will pull exactly what your spec engineer needs."
-        ctaLabel="Find a Dealer"
+        ctaLabel="Where to Buy"
         ctaHref="/find-a-dealer"
         secondaryLabel="Contact Sales"
         secondaryHref="/contact"

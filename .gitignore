@@ -6,3 +6,10 @@ build
 *.log
 next-env.d.ts
 .vercel
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials

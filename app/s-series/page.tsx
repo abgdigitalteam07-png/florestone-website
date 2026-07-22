@@ -5,7 +5,7 @@ import SeriesPage from '@/components/product/SeriesPage';
 export const metadata: Metadata = {
   title: SERIES['s-series'].metaTitle,
   description: SERIES['s-series'].metaDescription,
-  keywords: ['Saflor shower base', 'recess shower receptor', 'Wedge-Lok drain', 'compression molded shower pan', 'Florestone S Series', 'shower base contractor'],
+  keywords: ['S Series shower base', 'recess shower receptor', 'Wedge-Lok drain', 'compression molded shower pan', 'Florestone S Series', 'shower base contractor'],
   openGraph: {
     title: SERIES['s-series'].metaTitle,
     description: SERIES['s-series'].metaDescription,
