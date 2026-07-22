@@ -441,8 +441,11 @@ function buildFamilies(products: SalsifyProduct[]): ProductFamily[] {
       variants,
     });
   }
-  // Sort: larger families first, then alphabetically.
-  return families.sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+  // Sort: ADA families first, then by count (desc), then alphabetically.
+  return families.sort((a, b) => {
+    if (a.ada !== b.ada) return a.ada ? -1 : 1;
+    return b.count - a.count || a.name.localeCompare(b.name);
+  });
 }
 
 export const ALL_FAMILIES_DATA: ProductFamily[] = buildFamilies(SYNCED_PRODUCTS as SalsifyProduct[]);

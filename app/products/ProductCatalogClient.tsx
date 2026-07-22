@@ -69,7 +69,7 @@ export default function ProductCatalogClient() {
     const q = search.toLowerCase().trim();
     return ALL_FAMILIES_DATA.filter(f => {
       if (q) {
-        const hay = [f.name, f.series, f.category, f.sizeRange, ...f.variants.map(v => v.name)].join(' ').toLowerCase();
+        const hay = [f.name, f.series, f.category, f.sizeRange, ...f.variants.map(v => v.name), ...f.variants.map(v => v.modelNumber ?? ''), ...f.variants.map(v => v.sku ?? '')].join(' ').toLowerCase();
         if (!hay.includes(q)) return false;
       }
       // Match if ANY variant is in the selected category/series — families can
@@ -107,7 +107,7 @@ export default function ProductCatalogClient() {
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              placeholder="Search by product name, series, size…"
+              placeholder="Search by product name, model number, series, size…"
               style={{ fontFamily: 'var(--font-heading)' }}
               className="w-full pl-11 pr-10 py-3 bg-white border border-[var(--color-line)] rounded-lg text-[13px] text-[var(--color-text)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] transition-colors"
             />

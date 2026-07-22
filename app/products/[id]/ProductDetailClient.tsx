@@ -171,19 +171,28 @@ export default function ProductDetailClient({
                   </p>
                   <div className="flex gap-2">
                     {detail.colors.map(c => (
-                      <button
-                        key={c.id}
-                        onClick={() => handleColor(c.id)}
-                        aria-label={`Color: ${c.name}`}
-                        aria-pressed={color === c.id}
-                        title={c.name}
-                        className={`relative w-8 h-8 rounded-full border transition-all ${
-                          color === c.id
-                            ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2'
-                            : 'border-[var(--color-powder-dark)] hover:border-[var(--color-text-muted)]'
-                        }`}
-                        style={{ backgroundColor: c.hex }}
-                      />
+                      detail.colors.length === 1 ? (
+                        <div
+                          key={c.id}
+                          title={c.name}
+                          className="relative w-8 h-8 rounded-full border border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2"
+                          style={{ backgroundColor: c.hex }}
+                        />
+                      ) : (
+                        <button
+                          key={c.id}
+                          onClick={() => handleColor(c.id)}
+                          aria-label={`Color: ${c.name}`}
+                          aria-pressed={color === c.id}
+                          title={c.name}
+                          className={`relative w-8 h-8 rounded-full border transition-all ${
+                            color === c.id
+                              ? 'border-[var(--color-primary)] ring-2 ring-[var(--color-primary)] ring-offset-2'
+                              : 'border-[var(--color-powder-dark)] hover:border-[var(--color-text-muted)]'
+                          }`}
+                          style={{ backgroundColor: c.hex }}
+                        />
+                      )
                     ))}
                   </div>
                 </div>
