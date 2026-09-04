@@ -12,6 +12,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # Without this, checkout leaves an auth extraheader for github.com in
+          # the git config that overrides our mirror URL credentials and the
+          # push to the other account is rejected.
+          persist-credentials: false
       - name: Push mirror to mostafaesso
         run: |
           git remote add mirror "https://x-access-token:${{ secrets.MIRROR_TOKEN }}@github.com/mostafaesso/${{ github.event.repository.name }}.git"
